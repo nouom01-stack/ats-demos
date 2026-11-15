@@ -738,6 +738,7 @@ function waText(b) {
 
 /* ---------- site ---------- */
 let qBranch = CFG.branches[0].id;
+function revTxt(n) { const k = Math.floor(n / 1000); return n < 1000 ? `${fmt(n)} تقييم` : k === 1 ? 'أكثر من ألف تقييم' : k === 2 ? 'أكثر من ألفين تقييم' : k <= 10 ? `أكثر من ${fmt(k)} آلاف تقييم` : `أكثر من ${fmt(k)} ألف تقييم`; }
 function renderStatic() {
   const totalReviews = CFG.branches.reduce((t, b) => t + (b.reviews || 0), 0);
   document.title = CFG.fullName;
@@ -754,7 +755,7 @@ function renderStatic() {
   $('#navBranches').textContent = nb > 1 ? 'الفروع' : 'الموقع';
   $('#brLead').textContent = CFG.branches.every(b => b.h24) ? 'مفتوحين ٢٤ ساعة كل أيام الأسبوع، احجز وتعال على موعدك.' : 'احجز وتعال على موعدك، وسيارتك تدخل على طول.';
   const facts = [
-    ['ic-star', `${fmt(CFG.rating)} من ٥`, `أكثر من ${fmt(Math.floor(totalReviews / 1000))} آلاف تقييم`],
+    ['ic-star', `${fmt(CFG.rating)} من ٥`, revTxt(totalReviews)],
     ['ic-clock', CFG.branches.every(b => b.h24) ? 'مفتوح ٢٤ ساعة' : CFG.hoursTxt, 'كل أيام الأسبوع'],
     ['ic-pin', nb > 1 ? (nb === 2 ? 'فرعين في الرياض' : `${fmt(nb)} فروع`) : CFG.branches[0].area, nb > 1 ? CFG.branches.map(b => b.short).join(' و') : 'الرياض'],
     ['ic-shield', 'ادفع بالطريقة اللي تناسبك', 'مدى وأبل باي، أو في المغسلة']
@@ -771,6 +772,7 @@ function renderQueue() {
   $('#queue').innerHTML = `<div class="queue__head"><h2>الزحمة الحين</h2><span class="live"><i></i>مباشر</span></div>${CFG.branches.length > 1 ? `<div class="qsel">${CFG.branches.map(b => `<button type="button" class="${b.id === qBranch ? 'is-on' : ''}" data-qb="${b.id}" aria-pressed="${b.id === qBranch}">${esc(b.short)}</button>`).join('')}</div>` : ''}<div class="meter"><div class="meter__bar"><i class="${cls}" style="width:${Math.max(8, pct)}%"></i></div><div class="meter__txt"><span>الحالة: <b>${lbl}</b></span><span>قدامك تقريباً ${cars === 1 ? '<b>سيارة وحدة</b>' : cars === 2 ? '<b>سيارتين</b>' : `<b>${fmt(cars)}</b> ${cars < 11 ? 'سيارات' : 'سيارة'}`}</span></div></div><div class="vs"><div class="vs__c vs__c--walk"><small>بدون حجز</small><b class="num">${fmt(wait)} دقيقة</b><span>انتظار تقريبي</span></div><div class="vs__c vs__c--book"><small>بالحجز</small><b class="num">${nx ? minToTime(nx.m) : 'بكرة'}</b><span>${nx ? (nx.date === today() ? 'أقرب موعد فاضي اليوم' : 'أقرب موعد فاضي ' + dateLabel(nx.date)) : ''}</span></div></div><button class="btn btn--deep btn--block" type="button" data-act="book" data-branch="${qBranch}">${ic('ic-cal')}احجز أقرب موعد</button>`;
 }
 function renderServices() {
+  $('#sizes').hidden = SIZES.length < 2;
   $('#sizes').innerHTML = SIZES.map(s => `<button type="button" class="size${s.id === store.sel.size ? ' is-on' : ''}" role="radio" aria-checked="${s.id === store.sel.size}" data-size="${s.id}">${carSil(s.id)}<span><b>${esc(s.name)}</b><span>${esc(s.hint)}</span></span></button>`).join('');
   $('#svcGrid').innerHTML = CFG.services.map(s => { const on = store.sel.svcs.includes(s.id); return `<article class="svc${s.pop ? ' is-pop' : ''}">${s.pop ? '<span class="svc__tag">الأكثر طلباً</span>' : ''}<div class="svc__top"><h3>${esc(s.name)}</h3><span class="svc__dur">${ic('ic-clock')}${durTxt(s.dur)}</span></div><ul>${s.inc.map(x => `<li>${ic('ic-check')}<span>${esc(x)}</span></li>`).join('')}</ul><div class="svc__foot"><span class="price">${fmt(svcPrice(s, store.sel.size))} <small>ريال</small></span><button type="button" class="pick${on ? ' is-on' : ''}" data-svc="${s.id}" aria-pressed="${on}">${on ? ic('ic-check') + 'مضافة' : ic('ic-plus') + 'أضف للحجز'}</button></div></article>`; }).join('');
   $('#addons').innerHTML = CFG.addons.map(a => { const on = store.sel.addons.includes(a.id); return `<button type="button" class="addon${on ? ' is-on' : ''}" data-addon="${a.id}" aria-pressed="${on}">${on ? ic('ic-check') : ic('ic-plus')}${esc(a.name)} <span>+${fmt(addonPrice(a))} ريال</span></button>`; }).join('');
@@ -779,7 +781,7 @@ function renderServices() {
 function renderBookbar() {
   const lines = selLines(); const on = lines.length && location.hash !== '#admin' && !$('#bookDlg').open;
   $('#bookbar').classList.toggle('is-on', !!on);
-  if (lines.length) { const t = totals(lines); $('#bbTotal').textContent = `${money(t.sub)}، ${durTxt(t.dur)} تقريباً`; $('#bbItems').textContent = `${sizeName(store.sel.size)}: ${lines.map(l => l.name).join('، ')}`; }
+  if (lines.length) { const t = totals(lines); $('#bbTotal').textContent = `${money(t.sub)}، ${durTxt(t.dur)} تقريباً`; $('#bbItems').textContent = (SIZES.length > 1 ? sizeName(store.sel.size) + ': ' : '') + lines.map(l => l.name).join('، '); }
 }
 function renderLoyal() {
   const n = every(), s = Math.min(store.loyalty.stamps || 0, n), left = n - s;
