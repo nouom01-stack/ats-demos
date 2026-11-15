@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حلاق مقص ونص</title>
+<meta name="description" content="نسخة تجريبية مقترحة لموقع حلاق مقص ونص في حي ظهرة لبن: احجز موعد حلاقتك واختر حلاقك من جوالك.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B3C49">
+<meta property="og:type" content="website">
+<meta property="og:title" content="حلاق مقص ونص">
+<meta property="og:description" content="نسخة تجريبية مقترحة لموقع حلاق مقص ونص في حي ظهرة لبن: احجز موعد حلاقتك واختر حلاقك من جوالك.">
+<meta property="og:url" content="https://nouom01-stack.github.io/ats-demos/maqasnos/">
+<meta property="og:image" content="https://nouom01-stack.github.io/ats-demos/maqasnos/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27%230B3C49%27/%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23F07167%27%20stroke-width%3D%275%27%20stroke-linecap%3D%27round%27%3E%3Ccircle%20cx%3D%2720%27%20cy%3D%2720%27%20r%3D%277%27/%3E%3Ccircle%20cx%3D%2720%27%20cy%3D%2744%27%20r%3D%277%27/%3E%3Cpath%20d%3D%27M48%2014%2025.5%2038.5M37%2037l11%2013M25.5%2025.5%2033%2033%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --bg:#F2F6F7; --bg-2:#E5EDF0; --card:#FFFFFF;
+  --ink:#0E1C24; --ink-2:#3A4B55; --ink-3:#687983;
+  --line:#DAE3E7; --line-2:#C3D0D6;
+  --deep:#0B3C49; --deep-2:#082B35; --deep-tint:#E9F0F2;
+  --brand:#F07167; --brand-2:#EC483B; --brand-tint:#F9E3E1; --on-brand:#FFFFFF;
+  --green:#12804E; --green-tint:#DBF2E6; --amber:#B86E00; --amber-tint:#FFF0D2;
+  --red:#C5372C; --red-tint:#FBE2DE; --wa:#1E9E52;
+  --display:"Changa","IBM Plex Sans Arabic","Segoe UI",Tahoma,"DejaVu Sans",sans-serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,"DejaVu Sans",sans-serif;
+  --r:18px;
+  --shadow:0 1px 2px rgba(14,28,36,.05),0 12px 28px rgba(14,28,36,.08);
+  --head:66px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+svg{display:block}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:10px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.2;margin:0}
+p{margin:0}
+.muted{color:var(--ink-3)}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* demo bar */
+.demo-bar{background:var(--ink);color:#fff;font-size:13.5px}
+.demo-bar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:8px}
+.demo-bar a{color:var(--brand);font-weight:700;text-decoration:none;white-space:nowrap}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:rgba(242,246,247,.93);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:var(--head)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand__mark{width:40px;height:40px;border-radius:12px;background:var(--deep);display:grid;place-items:center;color:var(--brand)}
+.brand__mark svg{width:24px;height:24px}
+.brand b{display:block;font-family:var(--display);font-weight:800;font-size:23px;line-height:1;color:var(--ink)}
+.brand small{display:block;font-size:12px;color:var(--ink-3);margin-top:3px;line-height:1.2}
+.nav{display:flex;gap:2px;margin-inline-start:auto}
+.nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:15px}
+.nav a:hover{background:var(--bg-2);color:var(--ink)}
+.top__actions{display:flex;gap:8px;align-items:center}
+.icon-btn{position:relative;display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line-2);background:#fff;color:var(--ink);text-decoration:none;flex:none}
+.icon-btn:hover{background:var(--bg-2)}
+.badge{position:absolute;top:-7px;inset-inline-start:-7px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--brand);color:var(--on-brand);font-size:12px;font-weight:700;display:grid;place-items:center;line-height:1}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;border:1px solid transparent;font-weight:700;font-size:15.5px;text-decoration:none;white-space:nowrap;transition:background .15s,filter .15s}
+.btn .ic{width:19px;height:19px}
+.btn--brand{background:var(--brand);color:var(--on-brand)}
+.btn--brand:hover{background:var(--brand-2)}
+.btn--deep{background:var(--deep);color:#fff}
+.btn--deep:hover{background:var(--deep-2)}
+.btn--ghost{background:#fff;border-color:var(--line-2);color:var(--ink)}
+.btn--ghost:hover{background:var(--bg-2)}
+.btn--wa{background:var(--wa);color:#fff}
+.btn--wa:hover{filter:brightness(.93)}
+.btn--block{width:100%}
+.btn--sm{min-height:36px;padding:0 13px;font-size:14px;border-radius:11px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;padding:0;color:var(--deep);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* hero */
+.hero{background:var(--deep);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:56px;background:var(--bg);clip-path:ellipse(70% 100% at 50% 100%)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:center;padding:44px 0 92px}
+.rating{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);font-size:14px;color:#E8F1F4}
+.rating b{color:var(--brand);font-weight:700}
+.rating .ic{width:16px;height:16px;fill:var(--brand);stroke:none}
+.hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:800;line-height:1.08;margin:18px 0 0}
+.hero h1 span{display:block;color:var(--brand)}
+.hero__lead{font-size:clamp(17px,1.5vw,19px);color:#CFE0E6;max-width:32em;margin:16px 0 26px}
+.hero__cta{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn--ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+.hero .btn--ghost:hover{background:rgba(255,255,255,.08)}
+
+/* live queue card */
+.queue{background:#fff;color:var(--ink);border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28);padding:22px;display:grid;gap:16px}
+.queue__head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.queue__head h2{font-size:20px}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--red)}
+.live i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.qsel{display:flex;gap:6px;background:var(--bg);padding:4px;border-radius:12px}
+.qsel button{flex:1;border:0;background:transparent;padding:8px 6px;border-radius:9px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.qsel button.is-on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(14,28,36,.12)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs__c{border-radius:16px;padding:14px;display:grid;gap:4px}
+.vs__c small{font-size:13px;font-weight:600}
+.vs__c b{font-family:var(--display);font-size:30px;line-height:1.05}
+.vs__c span{font-size:13px}
+.vs__c--walk{background:var(--bg)}
+.vs__c--walk small,.vs__c--walk span{color:var(--ink-3)}
+.vs__c--book{background:var(--brand-tint)}
+.vs__c--book small{color:var(--deep)}
+.vs__c--book span{color:var(--ink-2)}
+.meter{display:grid;gap:6px}
+.meter__bar{height:10px;border-radius:999px;background:var(--bg-2);overflow:hidden}
+.meter__bar i{display:block;height:100%;border-radius:inherit;background:var(--green);transition:width .4s}
+.meter__bar i.is-mid{background:#E6A100}
+.meter__bar i.is-high{background:var(--red)}
+.meter__txt{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-2)}
+.meter__txt b{color:var(--ink)}
+
+/* car art */
+.carart{position:relative;margin-top:-6px}
+.carart svg{width:100%;height:auto}
+.bub{animation:rise 6s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-90px);opacity:0}}
+
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:-34px;position:relative;z-index:2}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}
+.fact__ic{width:40px;height:40px;border-radius:12px;background:var(--deep-tint);color:var(--deep);display:grid;place-items:center;flex:none}
+.fact b{display:block;font-size:15.5px;line-height:1.3}
+.fact span{display:block;font-size:13px;color:var(--ink-3);line-height:1.35}
+
+/* sections */
+.section{padding:60px 0}
+.section--alt{background:#fff;border-block:1px solid var(--line)}
+.section__head{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.section__head h2{font-size:clamp(28px,3.4vw,40px)}
+.section__head p{color:var(--ink-2);margin-top:6px;max-width:40em}
+.note{font-size:13.5px;color:var(--ink-3)}
+
+/* size picker */
+.sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:640px}
+.size{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;border:1.5px solid var(--line-2);background:#fff;text-align:start}
+.size svg{width:58px;height:28px;color:var(--ink-3);flex:none}
+.size b{display:block;font-size:15px;line-height:1.25}
+.size span{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.3}
+.size.is-on{border-color:var(--deep);background:var(--deep-tint)}
+.size.is-on svg{color:var(--deep)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:22px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;position:relative}
+.svc.is-pop{border:2px solid var(--brand)}
+.svc__tag{position:absolute;top:-12px;inset-inline-start:16px;background:var(--brand);color:var(--on-brand);font-size:12.5px;font-weight:700;padding:2px 10px;border-radius:999px}
+.svc__top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.svc h3{font-size:19px;font-weight:700}
+.svc__dur{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-3);white-space:nowrap}
+.svc__dur .ic{width:15px;height:15px}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:14px;color:var(--ink-2)}
+.svc li{display:flex;gap:7px;align-items:start}
+.svc li .ic{width:16px;height:16px;color:var(--green);margin-top:3px}
+.svc__foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px dashed var(--line-2)}
+.price{font-family:var(--display);font-size:24px;font-weight:700;line-height:1}
+.price small{font-family:var(--body);font-size:13px;font-weight:500;color:var(--ink-3)}
+.pick{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:12px;border:1.5px solid var(--deep);background:#fff;color:var(--deep);font-weight:700;font-size:14.5px}
+.pick:hover{background:var(--deep-tint)}
+.pick.is-on{background:var(--deep);color:#fff}
+.pick .ic{width:17px;height:17px}
+.addons{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.addon{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;font-size:14.5px;font-weight:600}
+.addon span{color:var(--ink-3);font-weight:500}
+.addon.is-on{border-color:var(--deep);background:var(--deep-tint)}
+.addon .ic{width:16px;height:16px}
+
+/* booking bar */
+.bookbar{position:fixed;inset-inline:12px;bottom:12px;z-index:35;display:none;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:18px;background:var(--ink);color:#fff;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.bookbar.is-on{display:flex}
+.bookbar__t{flex:1;min-width:0;font-size:14px;line-height:1.35}
+.bookbar__t b{display:block;font-size:16px}
+.bookbar__t span{color:#B9C7CD;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* how */
+.how{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0;counter-reset:s}
+.how li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:6px}
+.how__n{width:34px;height:34px;border-radius:10px;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px}
+.how h3{font-size:17px;margin-top:6px}
+.how p{font-size:14.5px;color:var(--ink-2)}
+
+/* loyalty */
+.loyal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center;background:var(--deep);color:#fff;border-radius:26px;padding:30px}
+.loyal h2{font-size:clamp(26px,3vw,36px)}
+.loyal p{color:#CFE0E6;margin-top:8px}
+.stamps{display:grid;grid-template-columns:repeat(var(--n,6),minmax(0,1fr));gap:10px;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.3);border-radius:20px;padding:18px}
+.stamp{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.35);display:grid;place-items:center;color:rgba(255,255,255,.4)}
+.stamp svg{width:46%;height:46%}
+.stamp.is-on{border:0;background:var(--brand);color:var(--on-brand)}
+.stamp.is-free{border-style:solid;border-color:var(--brand);color:var(--brand)}
+.stamps__txt{grid-column:1/-1;font-size:14px;color:#CFE0E6;text-align:center}
+
+/* my bookings */
+.bcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:14px}
+.bcard + .bcard{margin-top:14px}
+.bcard__top{display:flex;justify-content:space-between;align-items:start;gap:12px;flex-wrap:wrap}
+.bcard__no{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:.5px}
+.bcard__meta{font-size:14px;color:var(--ink-2)}
+.bcard__acts{display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2);white-space:nowrap}
+.pill--ok{background:var(--green-tint);color:var(--green)}
+.pill--wait{background:var(--amber-tint);color:var(--amber)}
+.pill--deep{background:var(--deep-tint);color:var(--deep)}
+.pill--off{background:var(--red-tint);color:var(--red)}
+.track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;position:relative}
+.track__step{display:grid;justify-items:center;gap:6px;text-align:center;font-size:13px;color:var(--ink-3);position:relative}
+.track__step::before{content:"";position:absolute;top:15px;inset-inline-start:50%;width:100%;height:3px;background:var(--line);z-index:0}
+.track__step:last-child::before{display:none}
+.track__step.is-done::before{background:var(--green)}
+.track__dot{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--line-2);display:grid;place-items:center;position:relative;z-index:1}
+.track__dot .ic{width:16px;height:16px}
+.track__step.is-done .track__dot{background:var(--green);border-color:var(--green);color:#fff}
+.track__step.is-now{color:var(--ink);font-weight:700}
+.track__step.is-now .track__dot{border-color:var(--brand);background:var(--brand);color:var(--on-brand);box-shadow:0 0 0 6px var(--brand-tint)}
+.empty{background:#fff;border:1px dashed var(--line-2);border-radius:var(--r);padding:30px;text-align:center;display:grid;gap:12px;justify-items:center;color:var(--ink-2)}
+.trackform{display:flex;gap:8px;margin-top:16px;max-width:460px}
+.trackform .input{flex:1}
+
+/* branches */
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.branch{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.branch__map{height:130px;background:var(--deep-tint);position:relative;overflow:hidden}
+.branch__map svg{width:100%;height:100%}
+.branch__body{padding:18px;display:grid;gap:8px}
+.branch h3{font-size:20px}
+.branch__row{display:flex;gap:8px;align-items:start;font-size:14.5px;color:var(--ink-2)}
+.branch__row .ic{width:17px;height:17px;margin-top:3px;color:var(--deep)}
+.branch__acts{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 18px}
+
+/* footer */
+.foot{background:var(--ink);color:#C9D5DA;padding:34px 0 90px}
+.foot__in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot .brand b{color:#fff}
+.foot p{font-size:14px}
+.foot a{color:#fff}
+
+/* sheet / dialogs */
+dialog.sheet{border:0;padding:0;margin:auto;width:min(560px,100%);max-height:min(92vh,860px);border-radius:24px;background:var(--card);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog.sheet::backdrop{background:rgba(9,18,24,.55)}
+.sheet__in{display:flex;flex-direction:column;max-height:inherit}
+.sheet__head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.sheet__head h3{font-size:20px}
+.sheet__body{padding:18px;overflow:auto;display:grid;gap:16px}
+.sheet__foot{padding:14px 18px;border-top:1px solid var(--line);display:grid;gap:8px;background:#fff;border-radius:0 0 24px 24px}
+.stepbar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.stepbar span{height:5px;border-radius:999px;background:var(--line)}
+.stepbar span.is-on{background:var(--brand)}
+.field{display:grid;gap:7px}
+.label,.field > label{font-weight:700;font-size:14.5px}
+.input,.select{width:100%;min-height:48px;padding:10px 14px;border-radius:13px;border:1.5px solid var(--line-2);background:#fff;font-size:16px}
+.input:focus,.select:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px var(--deep-tint)}
+.input.is-bad{border-color:var(--red)}
+.hint{font-size:13px;color:var(--ink-3)}
+.err{font-size:13px;color:var(--red);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:grid;justify-items:center;gap:1px;min-width:66px;padding:8px 10px;border-radius:13px;border:1.5px solid var(--line-2);background:#fff;font-size:13px;color:var(--ink-2);line-height:1.25}
+.chip b{font-size:16px;color:var(--ink)}
+.chip.is-on{border-color:var(--deep);background:var(--deep);color:#D8E7EC}
+.chip.is-on b{color:#fff}
+.periods{display:flex;gap:6px;background:var(--bg);padding:4px;border-radius:12px}
+.periods button{flex:1;border:0;background:transparent;padding:8px 4px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.periods button.is-on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(14,28,36,.12)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+.slot{min-height:52px;border-radius:12px;border:1.5px solid var(--line-2);background:#fff;display:grid;place-items:center;align-content:center;gap:0;line-height:1.25;font-weight:700;font-size:15px}
+.slot small{font-size:11.5px;font-weight:600;color:var(--green)}
+.slot small.is-few{color:var(--amber)}
+.slot.is-on{border-color:var(--brand);background:var(--brand-tint)}
+.slot[disabled]{background:var(--bg);color:var(--ink-3);border-style:dashed;cursor:not-allowed}
+.slot[disabled] small{color:var(--ink-3)}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line-2);background:#fff;cursor:pointer;font-weight:600}
+.opt input{width:18px;height:18px;accent-color:var(--deep);flex:none}
+.opt.is-on{border-color:var(--deep);background:var(--deep-tint)}
+.opt__end{margin-inline-start:auto;font-size:13px;color:var(--ink-3);font-weight:500}
+.sum{background:var(--bg);border-radius:16px;padding:14px;display:grid;gap:7px;font-size:14.5px}
+.row{display:flex;justify-content:space-between;gap:10px}
+.row--total{font-weight:800;font-size:17px;border-top:1px dashed var(--line-2);padding-top:9px;margin-top:2px}
+.row--save{color:var(--green);font-weight:600}
+.cardbox{display:grid;gap:10px;padding:14px;border-radius:16px;border:1px solid var(--line);background:#fff}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.done{display:grid;justify-items:center;text-align:center;gap:10px}
+.done__ic{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center}
+.done__ic .ic{width:32px;height:32px}
+.ticket{width:100%;border-radius:18px;background:var(--deep);color:#fff;padding:16px;display:grid;gap:10px;text-align:start}
+.ticket__no{font-family:var(--display);font-size:38px;font-weight:800;line-height:1;letter-spacing:1px;color:var(--brand)}
+.ticket__grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13.5px;color:#CFE0E6}
+.ticket__grid b{display:block;color:#fff;font-size:15px}
+.toast{position:fixed;inset-inline:0;bottom:90px;margin-inline:auto;width:max-content;max-width:calc(100% - 32px);z-index:80;background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.25);animation:tin .25s ease}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}}
+
+/* admin */
+.admin-bar{background:var(--ink);color:#fff}
+.admin-bar .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:16px}
+.admin-bar h2{font-size:24px}
+.admin-bar p{color:#B9C7CD;font-size:14px}
+.admin-bar .select{min-height:42px;width:auto;background:#1B2C35;border-color:#2E4450;color:#fff}
+.atabs{display:flex;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.atab{flex:none;border:1px solid var(--line-2);background:#fff;border-radius:12px;padding:8px 14px;font-weight:600;font-size:14.5px;color:var(--ink-2)}
+.atab.is-on{background:var(--deep);border-color:var(--deep);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.kpi b{display:block;font-family:var(--display);font-size:28px;line-height:1.1}
+.kpi span{font-size:13.5px;color:var(--ink-3)}
+.board{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:12px;overflow-x:auto;padding-bottom:6px}
+.col{background:var(--bg-2);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:180px}
+.col__h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px;padding:4px 6px}
+.col__h span{background:#fff;border-radius:999px;padding:0 9px;font-size:13px}
+.tk{background:#fff;border-radius:13px;padding:11px;display:grid;gap:6px;border:1px solid var(--line)}
+.tk__top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tk__no{font-family:var(--display);font-weight:800;font-size:17px}
+.tk__time{font-weight:800;font-size:15px;color:var(--deep)}
+.mini{font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.tk .btn{min-height:36px;font-size:13.5px;border-radius:10px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:16px}
+.panel h3{font-size:19px;margin-bottom:4px}
+.panel > p{color:var(--ink-3);font-size:14px;margin-bottom:12px}
+.tscroll{overflow-x:auto}
+.t{width:100%;border-collapse:collapse;font-size:14px}
+.t th,.t td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:middle}
+.t th{font-size:13px;color:var(--ink-3);font-weight:600;white-space:nowrap}
+.t .input{min-height:40px;padding:6px 10px;font-size:14.5px}
+.t .num-in{width:84px}
+.chk{width:20px;height:20px;accent-color:var(--deep)}
+.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.switchrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.vbars{display:flex;align-items:end;gap:5px;height:150px;padding-top:10px}
+.vbars i{flex:1;background:var(--deep);border-radius:6px 6px 0 0;min-height:3px;opacity:.85}
+.vlabels{display:flex;gap:5px;font-size:11px;color:var(--ink-3)}
+.vlabels span{flex:1;text-align:center}
+.hbars{display:grid;gap:10px}
+.hbar{display:grid;gap:4px}
+.hbar__t{display:flex;justify-content:space-between;font-size:14px}
+.hbar__t i{font-style:normal;color:var(--ink-3)}
+.hbar b{display:block;height:9px;border-radius:999px;background:var(--brand)}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;padding-bottom:84px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .how{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .loyal{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .formgrid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .nav{display:none}
+  .top .wrap{gap:10px}
+  .brand small{display:none}
+  .brand b{font-size:21px}
+  .top__actions{margin-inline-start:auto}
+  .top .btn--brand{padding:0 14px}
+  .top .btn--brand .t-long{display:none}
+  .vs__c b{font-size:23px}
+  .hero h1{font-size:40px}
+  .demo-bar .wrap{font-size:12.5px}
+  .section{padding:44px 0}
+  .sizes{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .size{flex-direction:column;align-items:center;text-align:center;gap:4px;padding:10px 6px}
+  .size span{display:none}
+  .facts{grid-template-columns:1fr 1fr;gap:10px}
+  .fact{padding:12px;gap:10px;flex-direction:column;align-items:start}
+  .how{grid-template-columns:1fr}
+  dialog.sheet{width:100%;max-width:100%;max-height:94vh;margin:auto 0 0;border-radius:24px 24px 0 0}
+  .sheet__foot{border-radius:0}
+  .board{grid-template-columns:repeat(4,minmax(230px,82vw))}
+  .stamps{gap:6px;padding:12px}
+  .loyal{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="ic-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></symbol>
+<symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+<symbol id="ic-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+<symbol id="ic-wa" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1z"/><path d="M9 9.2c.2 2.6 2.2 4.6 4.8 4.8l1.2-1.4 1.9.9c-.2 1.2-1.2 1.9-2.4 1.8A7.3 7.3 0 0 1 8 8.8c0-1.2.6-2.2 1.8-2.4l.9 1.9z"/></symbol>
+<symbol id="ic-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="ic-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="ic-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+<symbol id="ic-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+<symbol id="ic-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+<symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 3 8.6 7 10 4-1.4 7-5.4 7-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="ic-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/></symbol>
+<symbol id="ic-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></symbol>
+<symbol id="ic-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+<symbol id="ic-gift" viewBox="0 0 24 24"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M3 9h18v-3H3zM12 6v14.5M12 6S10.5 2.5 8 3.5 9 6 12 6zm0 0s1.5-3.5 4-2.5S15 6 12 6z"/></symbol>
+<symbol id="ic-sparkle" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7zM19 16c.2 1.6.9 2.3 2.5 2.5-1.6.2-2.3.9-2.5 2.5-.2-1.6-.9-2.3-2.5-2.5 1.6-.2 2.3-.9 2.5-2.5z"/></symbol>
+<symbol id="ic-car" viewBox="0 0 24 24"><path d="M5 16.5h14M4 16.5v-4l2-5h12l2 5v4"/><circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/><path d="M4 12.5h16"/></symbol>
+<symbol id="ic-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="ic-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="ic-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></symbol>
+<symbol id="ic-apple" viewBox="0 0 24 24"><path d="M15.5 4.5c-.8 1-2 1.6-3 1.5-.1-1.1.4-2.2 1.1-2.9.8-.8 2-1.3 2.9-1.3.1 1-.3 2-1 2.7zM19 16.6c-.5 1.1-.8 1.6-1.4 2.6-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9-1.9 0-2.3.9-3.7.9-1.6 0-2.8-1.6-3.7-3-2.5-3.8-2.8-8.3-1.2-10.7 1.1-1.7 2.9-2.7 4.6-2.7 1.7 0 2.8.9 4.2.9 1.4 0 2.2-.9 4.2-.9 1.5 0 3.1.8 4.2 2.2-3.7 2-3.1 7.3.3 8.5z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="ic-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></symbol>
+</defs>
+</svg>
+
+<div class="demo-bar"><div class="wrap"><span id="demoTxt"></span><a href="#admin" id="demoLink">جرّب لوحة الإدارة</a></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="الصفحة الرئيسية">
+      <span class="brand__mark"><svg viewBox="0 0 24 24" class="ic" style="width:24px;height:24px"><use href="#ic-scissors"/></svg></span>
+      <span><b id="brandName"></b><small id="brandSub"></small></span>
+    </a>
+    <nav class="nav" aria-label="أقسام الموقع">
+      <a href="#services">الخدمات والأسعار</a>
+      <a href="#how">كيف تحجز</a>
+      <a href="#loyalty">بطاقة الولاء</a>
+      <a href="#branches" id="navBranches">الفروع</a>
+    </nav>
+    <div class="top__actions">
+      <a class="icon-btn" href="#bookings" aria-label="حجوزاتي"><svg class="ic"><use href="#ic-list"/></svg><span class="badge" id="bkBadge" hidden></span></a>
+      <button class="btn btn--brand" type="button" data-act="book"><svg class="ic"><use href="#ic-cal"/></svg><span>احجز<span class="t-long"> موعدك</span></span></button>
+    </div>
+  </div>
+</header>
+
+<div id="site">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="rating" id="heroRating"></span>
+        <h1 id="heroTitle"></h1>
+        <p class="hero__lead" id="heroLead"></p>
+        <div class="hero__cta">
+          <button class="btn btn--brand" type="button" data-act="book"><svg class="ic"><use href="#ic-cal"/></svg>احجز موعدك الحين</button>
+          <a class="btn btn--ghost" href="#services">شوف الأسعار</a>
+        </div>
+      </div>
+      <div>
+        <div class="queue" id="queue" aria-live="polite"></div>
+        <div class="carart" aria-hidden="true"><svg viewBox="0 0 520 260" aria-hidden="true">
+<defs><linearGradient id="gSeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9DEE3"/></linearGradient>
+<clipPath id="pole"><rect x="62" y="44" width="34" height="168" rx="17"/></clipPath></defs>
+<path d="M150 236V70q0-40 40-40h180q40 0 40 40v166" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="16" stroke-linecap="round"/>
+<path d="M150 236V70q0-40 40-40h180q40 0 40 40v166" fill="none" style="stroke:var(--brand)" stroke-width="3" stroke-dasharray="1 14" stroke-linecap="round"/>
+<rect x="180" y="58" width="200" height="120" rx="26" fill="rgba(255,255,255,.07)"/>
+<g clip-path="url(#pole)"><rect x="62" y="44" width="34" height="168" fill="#fff"/><g style="fill:var(--brand)"><path d="M40 70l80-40v18L40 88zM40 110l80-40v18l-80 40zM40 150l80-40v18l-80 40zM40 190l80-40v18l-80 40zM40 230l80-40v18l-80 40z"/></g></g>
+<rect x="56" y="34" width="46" height="14" rx="7" fill="#C9D3DA"/><rect x="56" y="208" width="46" height="14" rx="7" fill="#C9D3DA"/>
+<ellipse cx="300" cy="238" rx="150" ry="9" fill="rgba(0,0,0,.28)"/>
+<rect x="286" y="196" width="28" height="36" rx="6" fill="#9AA8B1"/><rect x="236" y="228" width="128" height="12" rx="6" fill="#7E8D97"/>
+<path d="M232 112q0-26 26-26h84q26 0 26 26v52H232z" fill="url(#gSeat)"/>
+<rect x="268" y="60" width="64" height="30" rx="15" fill="#F1F4F6"/>
+<path d="M214 168q0-10 10-10h152q10 0 10 10v22q0 10-10 10H224q-10 0-10-10z" fill="url(#gSeat)"/>
+<rect x="206" y="150" width="34" height="14" rx="7" style="fill:var(--brand)"/><rect x="360" y="150" width="34" height="14" rx="7" style="fill:var(--brand)"/>
+<path d="M300 200l-34 30M300 200l34 30" stroke="#5C6B74" stroke-width="5" stroke-linecap="round"/>
+<g transform="translate(430 96) rotate(-30)" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="0" cy="0" r="10"/><circle cx="0" cy="34" r="10"/><path d="M8 6l46 30M8 28l46-30"/></g>
+<g transform="translate(408 168) rotate(12)"><rect width="74" height="12" rx="6" style="fill:var(--brand)"/><path d="M8 12v12M18 12v12M28 12v12M38 12v12M48 12v12M58 12v12" style="stroke:var(--brand)" stroke-width="4" stroke-linecap="round"/></g>
+<g fill="#fff"><path class="bub" d="M470 70c1 7 3 9 10 10-7 1-9 3-10 10-1-7-3-9-10-10 7-1 9-3 10-10z" style="animation-delay:-2s"/><path class="bub" d="M150 120c.8 5 2 6.5 7 7.5-5 .8-6.2 2-7 7.5-.8-5.5-2-6.7-7-7.5 5-1 6.2-2.5 7-7.5z" style="animation-delay:-4s;animation-duration:7s"/></g>
+</svg></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="facts" id="facts"></div></div>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2>الخدمات والأسعار</h2>
+          <p>اختر خدماتك وتطلع لك الأسعار والمدة، وضيف للحجز اللي تبيه.</p>
+        </div>
+        <p class="note" id="priceNote"></p>
+      </div>
+      <div class="sizes" id="sizes" role="radiogroup" aria-label="الفئة"></div>
+      <div class="svc-grid" id="svcGrid"></div>
+      <h3 style="font-size:20px;margin-top:34px">إضافات تكمّل طلتك</h3>
+      <p class="muted" style="font-size:14.5px;margin-top:4px">تنضاف على أي خدمة تختارها.</p>
+      <div class="addons" id="addons"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="how">
+    <div class="wrap">
+      <div class="section__head"><div><h2>كيف تحجز؟</h2><p>دقيقة وحدة من جوالك، وتدخل على موعدك بدون طابور.</p></div></div>
+      <ol class="how">
+        <li><span class="how__n">١</span><h3>اختر الخدمة</h3><p>حدد الحلاقة أو الخدمة اللي تبيها، وضيف الإضافات.</p></li>
+        <li><span class="how__n">٢</span><h3>اختر الفرع والوقت</h3><p>تشوف المواعيد الفاضية قدامك، وتختار اللي يناسبك.</p></li>
+        <li><span class="how__n">٣</span><h3>ادفع أو أجّل الدفع</h3><p>مدى أو أبل باي أو بطاقة، أو تدفع في الصالون.</p></li>
+        <li><span class="how__n">٤</span><h3>تعال على موعدك</h3><p>توريهم رقم الحجز، وتجلس على الكرسي على طول.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="loyalty"><div class="wrap"><div class="loyal" id="loyal"></div></div></section>
+
+  <section class="section section--alt" id="bookings">
+    <div class="wrap" style="max-width:860px">
+      <div class="section__head"><div><h2>حجوزاتي</h2><p>تابع دورك أول بأول، وعدّل موعدك أو ألغه من هنا.</p></div></div>
+      <div id="bkList"></div>
+      <form class="trackform" id="trackForm" autocomplete="off">
+        <input class="input" id="trackNo" dir="auto" placeholder="" aria-label="رقم الحجز">
+        <button class="btn btn--deep" type="submit">تتبّع</button>
+      </form>
+      <p class="err" id="trackErr" hidden></p>
+    </div>
+  </section>
+
+  <section class="section" id="branches">
+    <div class="wrap">
+      <div class="section__head"><div><h2 id="brTitle"></h2><p id="brLead"></p></div></div>
+      <div class="branches" id="brList"></div>
+    </div>
+  </section>
+</div>
+
+<div id="admin" hidden>
+  <div class="admin-bar">
+    <div class="wrap">
+      <div><h2>لوحة الإدارة</h2><p id="admSub"></p></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <select class="select" id="admBranch" aria-label="الفرع"></select>
+        <a class="btn btn--ghost btn--sm" href="#top">ارجع للموقع</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="atabs" role="tablist" id="atabs">
+      <button class="atab is-on" type="button" data-tab="today">حجوزات اليوم</button>
+      <button class="atab" type="button" data-tab="prices">الخدمات والأسعار</button>
+      <button class="atab" type="button" data-tab="settings">الإعدادات</button>
+      <button class="atab" type="button" data-tab="reports">التقارير</button>
+    </div>
+    <div id="apanel" style="padding-bottom:40px"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="brand"><span class="brand__mark"><svg viewBox="0 0 24 24" class="ic" style="width:24px;height:24px"><use href="#ic-scissors"/></svg></span><span><b id="footName"></b><small id="footSub" style="color:#93A6AE"></small></span></div>
+    <p id="footTxt"></p>
+  </div>
+</footer>
+
+<div class="bookbar" id="bookbar">
+  <div class="bookbar__t"><b id="bbTotal"></b><span id="bbItems"></span></div>
+  <button class="btn btn--brand" type="button" data-act="book">احجز موعدك</button>
+</div>
+
+<dialog class="sheet" id="bookDlg" aria-labelledby="bkTitle"></dialog>
+<div id="toastHost" aria-live="polite"></div>
+<script>
+const CFG = {"template": "barber", "slug": "maqasnos", "prefix": "MN", "name": "مقص ونص", "fullName": "حلاق مقص ونص", "sub": "حلاقة رجالية في حي ظهرة لبن", "heroTitle": ["حلاقتك جاهزة", "على موعدك"], "heroLead": "مقص ونص في ظهرة لبن مفتوح ٢٤ ساعة. احجز موعدك من جوالك واختر حلاقك، وتعال وكرسيك ينتظرك.", "desc": "نسخة تجريبية مقترحة لموقع حلاق مقص ونص في حي ظهرة لبن: احجز موعد حلاقتك واختر حلاقك من جوالك.", "rating": 4.3, "whatsapp": "966556428848", "phone": "0556428848", "social": null, "theme": {"deep": "#0B3C49", "deep2": "#082B35", "deepTint": "#E9F0F2", "brand": "#F07167", "brand2": "#EC483B", "brandTint": "#F9E3E1", "onBrand": "#FFFFFF"}, "branches": [{"id": "main", "name": "حلاق مقص ونص", "short": "ظهرة لبن", "area": "حي ظهرة لبن", "addr": "شارع الطائف، حي ظهرة لبن، الرياض", "map": "https://www.google.com/maps/search/?api=1&query=%D8%AD%D9%84%D8%A7%D9%82%20%D9%85%D9%82%D8%B5%20%D9%88%D9%86%D8%B5&query_place_id=ChIJefDkYGQfLz4RJjb4-UlA7Gk", "h24": true, "bays": 4, "busy": 1.0, "rating": 4.3, "reviews": 886}], "sizes": [{"id": "s", "name": "عادي", "hint": ""}], "services": [{"id": "hair", "name": "حلاقة شعر", "dur": 30, "prices": [35], "inc": ["قص وتدريج على طلبك", "غسيل الشعر", "تسريحة واستشوار"]}, {"id": "combo", "name": "شعر وذقن", "pop": true, "dur": 45, "prices": [55], "inc": ["حلاقة شعر كاملة", "تحديد وتهذيب الذقن", "منشفة حارة"]}, {"id": "beard", "name": "حلاقة ذقن وتحديد", "dur": 20, "prices": [25], "inc": ["تحديد بالموس", "تهذيب وترتيب", "زيت للذقن"]}, {"id": "kids", "name": "حلاقة أطفال", "dur": 25, "prices": [30], "inc": ["لعمر ١٢ سنة وأقل", "قصة على طلب الأهل", "تعامل هادي مع الطفل"]}, {"id": "color", "name": "صبغة شعر أو ذقن", "dur": 40, "prices": [45], "inc": ["صبغة تغطي الشيب", "لون طبيعي", "غسيل بعد الصبغة"]}, {"id": "skin", "name": "تنظيف بشرة", "dur": 40, "prices": [80], "inc": ["تقشير وبخار", "ماسك منظف", "ترطيب للوجه"]}, {"id": "protein", "name": "بروتين للشعر", "dur": 120, "prices": [180], "inc": ["فرد وتنعيم", "يدوم أسابيع", "شامبو مناسب بعده"]}, {"id": "groom", "name": "باقة العريس", "dur": 180, "prices": [350], "inc": ["حلاقة شعر وذقن", "تنظيف بشرة وماسك", "حمام زيت وتسريحة"]}], "addons": [{"id": "mask", "name": "ماسك أسود", "price": 15, "dur": 10}, {"id": "wax", "name": "شمع للأنف والأذن", "price": 15, "dur": 5}, {"id": "massage", "name": "مساج للرأس", "price": 15, "dur": 10}, {"id": "towel", "name": "منشفة حارة", "price": 10, "dur": 5}], "coupon": {"code": "NOS10", "pct": 10, "min": 0}, "loyaltyEvery": 5, "priceNote": "الأسعار تقريبية للعرض، وتتعدل من لوحة الإدارة.", "ogName": "حلاق مقص ونص", "staff": ["حمزة", "أسامة"], "hoursTxt": "مفتوحين ٢٤ ساعة"};
+const KEY = 'cw.' + CFG.slug + '.v1';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const NF = new Intl.NumberFormat('ar-SA', { maximumFractionDigits: 2 });
+const fmt = n => NF.format(n);
+const money = n => fmt(Math.round(n * 100) / 100) + ' ريال';
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ic = (id, cls = '') => `<svg class="ic ${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+const DAYS = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+const MONTHS = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+const CURVE = [.55, .45, .3, .2, .12, .1, .15, .25, .35, .4, .42, .45, .4, .35, .38, .45, .55, .65, .75, .85, .95, 1, .95, .75];
+const pad = n => String(n).padStart(2, '0');
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const parseYmd = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const today = () => ymd(new Date());
+const latin = s => String(s || '').replace(/[٠-٩]/g, d => d.charCodeAt(0) - 1632).replace(/[۰-۹]/g, d => d.charCodeAt(0) - 1776);
+const two = n => fmt(n).padStart(2, '٠');
+const minToTime = m => { const h = Math.floor(m / 60) % 24, mm = m % 60; return `${fmt(h % 12 || 12)}:${two(mm)} ${h < 12 ? 'ص' : 'م'}`; };
+const fullDate = s => { const d = parseYmd(s); return `${DAYS[d.getDay()]} ${fmt(d.getDate())} ${MONTHS[d.getMonth()]}`; };
+const dateLabel = s => { const t = today(); if (s === t) return 'اليوم'; if (s === ymd(addDays(new Date(), 1))) return 'بكرة'; return fullDate(s); };
+function durTxt(m) {
+  if (m >= 480) return 'يوم كامل';
+  if (m < 60) return `${fmt(m)} دقيقة`;
+  const h = Math.floor(m / 60), r = m % 60;
+  const hw = h === 1 ? 'ساعة' : h === 2 ? 'ساعتين' : `${fmt(h)} ساعات`;
+  return r === 30 ? `${hw} ونص` : r ? `${hw} و${fmt(r)} دقيقة` : hw;
+}
+function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { let a = seed >>> 0; return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const rnd1 = s => rng(hash(s))();
+
+/* ---------- store ---------- */
+function fresh() {
+  return {
+    v: 1, bookings: [], prices: {}, me: {},
+    sel: { size: CFG.sizes[Math.min(1, CFG.sizes.length - 1)].id, svcs: [], addons: [] },
+    settings: { interval: 20, paused: false, loyaltyEvery: CFG.loyaltyEvery || 5, coupon: { ...CFG.coupon }, bays: Object.fromEntries(CFG.branches.map(b => [b.id, b.bays || 3])) },
+    loyalty: { stamps: 0 }, admin: { moves: {}, cancelled: [] }
+  };
+}
+function load() {
+  try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.v === 1) { const f = fresh(); return { ...f, ...s, sel: { ...f.sel, ...s.sel }, settings: { ...f.settings, ...s.settings, bays: { ...f.settings.bays, ...(s.settings || {}).bays } }, admin: { ...f.admin, ...s.admin }, loyalty: { ...f.loyalty, ...s.loyalty } }; } } catch (e) { }
+  return fresh();
+}
+let store = load();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { } }
+
+/* ---------- data ---------- */
+const SIZES = CFG.sizes;
+const sizeIdx = id => Math.max(0, SIZES.findIndex(s => s.id === id));
+const sizeName = id => (SIZES.find(s => s.id === id) || SIZES[0]).name;
+const svcById = id => CFG.services.find(s => s.id === id);
+const addonById = id => CFG.addons.find(a => a.id === id);
+const branchById = id => CFG.branches.find(b => b.id === id) || CFG.branches[0];
+const svcPrice = (s, size) => (store.prices[s.id] || s.prices)[sizeIdx(size)];
+const addonPrice = a => store.prices['a:' + a.id] ?? a.price;
+const coupon = () => store.settings.coupon || CFG.coupon;
+function selLines(sel = store.sel) {
+  const out = [];
+  sel.svcs.forEach(id => { const s = svcById(id); if (s) out.push({ id, kind: 'svc', name: s.name, price: svcPrice(s, sel.size), dur: s.dur }); });
+  sel.addons.forEach(id => { const a = addonById(id); if (a) out.push({ id, kind: 'addon', name: a.name, price: addonPrice(a), dur: a.dur || 0 }); });
+  return out;
+}
+const every = () => store.settings.loyaltyEvery || 5;
+const freeReady = () => (store.loyalty.stamps || 0) >= every();
+function totals(lines, code, useFree) {
+  const sub = lines.reduce((t, l) => t + l.price, 0);
+  let disc = 0, discLbl = '';
+  const washes = lines.filter(l => l.kind === 'svc');
+  if (useFree && washes.length) { disc = Math.min(...washes.map(l => l.price)); discLbl = 'زيارتك المجانية'; }
+  else if (code) { const c = coupon(); if (c && c.code && code.toUpperCase() === c.code.toUpperCase() && sub >= (c.min || 0)) { disc = Math.round(sub * c.pct) / 100; discLbl = `كود ${c.code.toUpperCase()}`; } }
+  return { sub, disc, discLbl, total: Math.max(0, sub - disc), dur: lines.reduce((t, l) => t + l.dur, 0) };
+}
+
+/* ---------- time & crowd ---------- */
+function crowd(bid, when = new Date()) {
+  const h = when.getHours(); const wk = [4, 5].includes(when.getDay()) ? 1.1 : 1;
+  const r = .85 + rnd1(CFG.slug + bid + ymd(when) + h) * .3;
+  return Math.min(1, CURVE[h] * wk * r * (branchById(bid).busy || 1));
+}
+function openRange(br) {
+  if (br.h24) return [0, 1440];
+  const t = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+  const o = t(br.open), c = t(br.close);
+  return [o, c <= o ? 1440 : c];
+}
+const seedCache = {};
+function seedDay(d) {
+  const ck = d + ':' + store.settings.interval + ':' + JSON.stringify(store.prices) + ':' + (d === today() ? Math.floor((new Date().getHours() * 60 + new Date().getMinutes()) / store.settings.interval) : '');
+  if (seedCache[ck]) return seedCache[ck];
+  const NAMES = ['عبدالله', 'محمد', 'فهد', 'سلطان', 'خالد', 'نواف', 'عبدالعزيز', 'تركي', 'ماجد', 'سعود', 'بندر', 'راكان', 'فيصل', 'يزيد', 'مشاري', 'عمر', 'ريان', 'بدر', 'ناصر', 'زياد', 'أنس', 'حمد'];
+  const CARS = (CFG.staff && CFG.staff.length ? CFG.staff : ['']).map(n => [n, CFG.sizes[0].id]);
+  const COLORS = ['أبيض', 'أسود', 'فضي', 'رمادي', 'كحلي', 'أحمر', 'عنابي', 'بيج'];
+  const PAYS = ['mada', 'mada', 'apple', 'apple', 'card', 'cash'];
+  const iv = store.settings.interval, out = [];
+  CFG.branches.forEach(br => {
+    const r = rng(hash(CFG.slug + br.id + d)); const [o, c] = openRange(br);
+    const n = Math.round((br.h24 ? 22 : 14) * (br.busy || 1) + r() * 8);
+    for (let i = 0; i < n; i++) {
+      let m = null;
+      for (let k = 0; k < 30 && m == null; k++) { const cand = o + Math.floor(r() * ((c - o) / iv)) * iv; if (r() < CURVE[Math.floor(cand / 60) % 24]) m = cand; }
+      if (m == null) continue;
+      const car = CARS[Math.floor(r() * CARS.length)];
+      const svc = CFG.services[Math.floor(r() * Math.min(3, CFG.services.length))];
+      const lines = [{ id: svc.id, kind: 'svc', name: svc.name, price: svcPrice(svc, car[1]), dur: svc.dur }];
+      if (r() < .35 && CFG.addons.length) { const a = CFG.addons[Math.floor(r() * CFG.addons.length)]; lines.push({ id: a.id, kind: 'addon', name: a.name, price: addonPrice(a), dur: a.dur || 0 }); }
+      const sub = lines.reduce((t, l) => t + l.price, 0); const pay = PAYS[Math.floor(r() * PAYS.length)];
+      out.push({ no: `${CFG.prefix}-${1000 + Math.floor(r() * 8999)}`, seeded: true, branch: br.id, date: d, time: m, size: car[1], lines, sub, disc: 0, total: sub, dur: lines.reduce((t, l) => t + l.dur, 0), pay, paid: pay !== 'cash', name: NAMES[Math.floor(r() * NAMES.length)], model: car[0], color: COLORS[Math.floor(r() * COLORS.length)], created: 0 });
+    }
+  });
+  if (d === today()) {
+    const now = new Date(); const base = Math.floor((now.getHours() * 60 + now.getMinutes()) / iv) * iv;
+    CFG.branches.forEach((br, bi) => [-80, -60, -40, -20, 0, 20].forEach((off, k) => {
+      const m = base + off - bi * iv; if (m < 0) return; const r = rng(hash(CFG.slug + br.id + d + 'live' + m));
+      const car = CARS[Math.floor(r() * CARS.length)]; const svc = CFG.services[k === 0 ? 0 : Math.floor(r() * Math.min(3, CFG.services.length))];
+      const lines = [{ id: svc.id, kind: 'svc', name: svc.name, price: svcPrice(svc, car[1]), dur: svc.dur }]; const pay = PAYS[Math.floor(r() * PAYS.length)];
+      out.push({ no: `${CFG.prefix}-${1000 + Math.floor(r() * 8999)}`, seeded: true, branch: br.id, date: d, time: m, size: car[1], lines, sub: lines[0].price, disc: 0, total: lines[0].price, dur: svc.dur, pay, paid: pay !== 'cash', name: NAMES[Math.floor(r() * NAMES.length)], model: car[0], color: COLORS[Math.floor(r() * COLORS.length)], created: 0 });
+    }));
+  }
+  out.sort((a, b) => a.time - b.time);
+  return (seedCache[ck] = out);
+}
+function slotsFor(bid, d) {
+  const br = branchById(bid); const iv = store.settings.interval; const [o, c] = openRange(br);
+  const cap = Math.max(1, +store.settings.bays[bid] || 1);
+  const now = new Date(); const isToday = d === ymd(now); const nowMin = now.getHours() * 60 + now.getMinutes();
+  const seeded = seedDay(d).filter(b => b.branch === bid);
+  const out = [];
+  for (let m = o; m < c; m += iv) {
+    if (isToday && m < nowMin + 15) continue;
+    const h = Math.floor(m / 60) % 24;
+    const walk = Math.round(cap * CURVE[h] * .75 * (.6 + rnd1(CFG.slug + bid + d + m) * .7));
+    const taken = Math.min(cap, walk + seeded.filter(b => b.time === m).length + store.bookings.filter(b => !b.cancelled && b.branch === bid && b.date === d && b.time === m).length);
+    out.push({ m, left: cap - taken });
+  }
+  return out;
+}
+function nextSlot(bid) {
+  for (let i = 0; i < 3; i++) { const d = ymd(addDays(new Date(), i)); const s = slotsFor(bid, d).find(x => x.left > 0); if (s) return { ...s, date: d }; }
+  return null;
+}
+
+/* ---------- statuses ---------- */
+const ST = ['confirmed', 'arrived', 'washing', 'ready', 'done'];
+const ST_NAME = { confirmed: 'مؤكد', arrived: 'وصلت', washing: 'على الكرسي', ready: 'خلصت', done: 'تمت الزيارة', cancelled: 'ملغي' };
+const slotDate = b => { const d = parseYmd(b.date); d.setMinutes(b.time); return d; };
+function autoStatus(b) {
+  const m = (Date.now() - slotDate(b).getTime()) / 60000; const dur = Math.max(15, b.dur || 30);
+  if (m < -10) return 'confirmed'; if (m < 10) return 'arrived'; if (m < dur + 10) return 'washing'; if (m < dur + 50) return 'ready'; return 'done';
+}
+function statusOf(b) {
+  if (b.cancelled || store.admin.cancelled.includes(b.no)) return 'cancelled';
+  const a = autoStatus(b); const man = store.admin.moves[b.no];
+  return man && ST.indexOf(man) > ST.indexOf(a) ? man : a;
+}
+
+/* ---------- small UI ---------- */
+function toast(msg) { const h = $('#toastHost'); h.innerHTML = `<div class="toast" role="status">${esc(msg)}</div>`; clearTimeout(toast.t); toast.t = setTimeout(() => { h.innerHTML = ''; }, 2800); }
+function carSil(id) {
+  const body = { s: 'M3 20Q3 16 7 15L16 14Q20 8 28 8L36 8Q42 9 46 14L53 15Q56 16 56 20L56 22L3 22Z', m: 'M3 20Q3 15 7 14L13 13Q17 6 26 6L40 6Q45 7 48 13L53 14Q56 15 56 20L56 22L3 22Z', l: 'M3 21L3 12Q3 10 6 10L11 9L15 3L48 3Q51 3 52 6L55 11Q56 12 56 14L56 22L3 22Z' }[id] || '';
+  return `<svg viewBox="0 0 59 28" aria-hidden="true"><path d="${body}" fill="currentColor"/><circle cx="14" cy="22" r="4.2" fill="#fff" stroke="currentColor" stroke-width="2.4"/><circle cx="45" cy="22" r="4.2" fill="#fff" stroke="currentColor" stroke-width="2.4"/></svg>`;
+}
+function mapArt(b) {
+  const r = rng(hash(CFG.slug + b.id));
+  const roads = Array.from({ length: 7 }, (_, i) => `<rect x="-60" y="${(i * 22 + r() * 14).toFixed(1)}" width="520" height="${(5 + r() * 7).toFixed(1)}" fill="#fff" opacity=".8" transform="rotate(${(r() * 50 - 25).toFixed(1)} 200 65)"/>`).join('');
+  return `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="130" style="fill:var(--deep-tint)"/>${roads}<g transform="translate(200 40)"><ellipse cx="0" cy="40" rx="16" ry="5" fill="rgba(0,0,0,.15)"/><path d="M0 38s-19-15-19-30a19 19 0 1 1 38 0c0 15-19 30-19 30z" style="fill:var(--deep)"/><circle cy="8" r="7" style="fill:var(--brand)"/></g></svg>`;
+}
+const waLinkTo = (num, text) => `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+function waText(b) {
+  const br = branchById(b.branch);
+  return [`السلام عليكم، عندي حجز في ${CFG.fullName}`, `رقم الحجز: ${b.no}`, CFG.branches.length > 1 ? br.name : null, `الموعد: ${fullDate(b.date)}، ${minToTime(b.time)}`, `الحلاق: ${b.model || 'أي حلاق متاح'}`, `الخدمات: ${b.lines.map(l => l.name).join('، ')}`, `الإجمالي: ${money(b.total)}${b.paid ? '، مدفوع' : '، الدفع في الصالون'}`, `الاسم: ${b.name}`].filter(Boolean).join('\n');
+}
+
+/* ---------- site ---------- */
+let qBranch = CFG.branches[0].id;
+function revTxt(n) { const k = Math.floor(n / 1000); return n < 1000 ? `${fmt(n)} تقييم` : k === 1 ? 'أكثر من ألف تقييم' : k === 2 ? 'أكثر من ألفين تقييم' : k <= 10 ? `أكثر من ${fmt(k)} آلاف تقييم` : `أكثر من ${fmt(k)} ألف تقييم`; }
+function renderStatic() {
+  const totalReviews = CFG.branches.reduce((t, b) => t + (b.reviews || 0), 0);
+  document.title = CFG.fullName;
+  $('#demoTxt').textContent = `هذي نسخة تجريبية مقترحة لموقع ${CFG.fullName}، والحجز والدفع فيها تجريبي ما يخصم أي مبلغ.`;
+  $('#brandName').textContent = CFG.name; $('#brandSub').textContent = CFG.sub;
+  $('#footName').textContent = CFG.name; $('#footSub').textContent = CFG.sub;
+  $('#heroRating').innerHTML = `${ic('ic-star')}<b>${fmt(CFG.rating)}</b> من ${fmt(totalReviews)} تقييم في قوقل ماب`;
+  $('#heroTitle').innerHTML = `${esc(CFG.heroTitle[0])}<span>${esc(CFG.heroTitle[1])}</span>`;
+  $('#heroLead').textContent = CFG.heroLead;
+  $('#priceNote').textContent = CFG.priceNote || '';
+  $('#trackNo').placeholder = 'اكتب رقم الحجز';
+  const nb = CFG.branches.length;
+  $('#brTitle').textContent = nb > 1 ? 'فروعنا' : 'موقعنا';
+  $('#navBranches').textContent = nb > 1 ? 'الفروع' : 'الموقع';
+  $('#brLead').textContent = CFG.branches.every(b => b.h24) ? 'مفتوحين ٢٤ ساعة كل أيام الأسبوع، احجز وتعال على موعدك.' : 'احجز وتعال على موعدك، وتجلس على الكرسي على طول.';
+  const facts = [
+    ['ic-star', `${fmt(CFG.rating)} من ٥`, revTxt(totalReviews)],
+    ['ic-clock', CFG.branches.every(b => b.h24) ? 'مفتوح ٢٤ ساعة' : CFG.hoursTxt, 'كل أيام الأسبوع'],
+    ['ic-pin', nb > 1 ? (nb === 2 ? 'فرعين في الرياض' : `${fmt(nb)} فروع`) : CFG.branches[0].area, nb > 1 ? CFG.branches.map(b => b.short).join(' و') : 'الرياض'],
+    ['ic-shield', 'ادفع بالطريقة اللي تناسبك', 'مدى وأبل باي، أو في الصالون']
+  ];
+  $('#facts').innerHTML = facts.map(f => `<div class="fact"><span class="fact__ic">${ic(f[0])}</span><div><b>${esc(f[1])}</b><span>${esc(f[2])}</span></div></div>`).join('');
+  $('#brList').innerHTML = CFG.branches.map(b => `<article class="branch"><div class="branch__map">${mapArt(b)}</div><div class="branch__body"><h3>${esc(b.name)}</h3><div class="branch__row">${ic('ic-pin')}<span>${esc(b.addr)}</span></div><div class="branch__row">${ic('ic-clock')}<span>${b.h24 ? 'مفتوح ٢٤ ساعة' : esc(b.hoursTxt || '')}</span></div><div class="branch__row">${ic('ic-star')}<span>${fmt(b.rating)} من ${fmt(b.reviews)} تقييم</span></div></div><div class="branch__acts"><button class="btn btn--brand btn--sm" type="button" data-act="book" data-branch="${b.id}">${ic('ic-cal')}احجز هنا</button><a class="btn btn--ghost btn--sm" href="${esc(b.map)}" target="_blank" rel="noopener">${ic('ic-route')}الاتجاهات</a><a class="btn btn--ghost btn--sm" href="tel:${esc(CFG.phone)}">${ic('ic-phone')}اتصل</a></div></article>`).join('');
+  $('#footTxt').innerHTML = `${esc(CFG.fullName)}، الرياض${CFG.social ? `، وحسابنا على <a href="${esc(CFG.social.url)}" target="_blank" rel="noopener">${esc(CFG.social.label)}</a>` : ''}<br><span style="color:#93A6AE">تصميم وتطوير <a href="https://ats.ceo" target="_blank" rel="noopener">ATS</a></span>`;
+}
+function renderQueue() {
+  const lv = crowd(qBranch); const pct = Math.round(lv * 100);
+  const cls = lv < .4 ? '' : lv < .7 ? 'is-mid' : 'is-high'; const lbl = lv < .4 ? 'هادي' : lv < .7 ? 'متوسط' : 'زحمة';
+  const wait = 5 + Math.round(lv * 45 / 5) * 5; const cars = Math.max(1, Math.round(lv * 6));
+  const nx = nextSlot(qBranch);
+  $('#queue').innerHTML = `<div class="queue__head"><h2>الزحمة الحين</h2><span class="live"><i></i>مباشر</span></div>${CFG.branches.length > 1 ? `<div class="qsel">${CFG.branches.map(b => `<button type="button" class="${b.id === qBranch ? 'is-on' : ''}" data-qb="${b.id}" aria-pressed="${b.id === qBranch}">${esc(b.short)}</button>`).join('')}</div>` : ''}<div class="meter"><div class="meter__bar"><i class="${cls}" style="width:${Math.max(8, pct)}%"></i></div><div class="meter__txt"><span>الحالة: <b>${lbl}</b></span><span>قدامك تقريباً ${cars === 1 ? '<b>زبون واحد</b>' : cars === 2 ? '<b>زبونين</b>' : `<b>${fmt(cars)}</b> ${cars < 11 ? 'زباين' : 'زبون'}`}</span></div></div><div class="vs"><div class="vs__c vs__c--walk"><small>بدون حجز</small><b class="num">${fmt(wait)} دقيقة</b><span>انتظار تقريبي</span></div><div class="vs__c vs__c--book"><small>بالحجز</small><b class="num">${nx ? minToTime(nx.m) : 'بكرة'}</b><span>${nx ? (nx.date === today() ? 'أقرب موعد فاضي اليوم' : 'أقرب موعد فاضي ' + dateLabel(nx.date)) : ''}</span></div></div><button class="btn btn--deep btn--block" type="button" data-act="book" data-branch="${qBranch}">${ic('ic-cal')}احجز أقرب موعد</button>`;
+}
+function renderServices() {
+  $('#sizes').hidden = SIZES.length < 2;
+  $('#sizes').innerHTML = SIZES.map(s => `<button type="button" class="size${s.id === store.sel.size ? ' is-on' : ''}" role="radio" aria-checked="${s.id === store.sel.size}" data-size="${s.id}">${carSil(s.id)}<span><b>${esc(s.name)}</b><span>${esc(s.hint)}</span></span></button>`).join('');
+  $('#svcGrid').innerHTML = CFG.services.map(s => { const on = store.sel.svcs.includes(s.id); return `<article class="svc${s.pop ? ' is-pop' : ''}">${s.pop ? '<span class="svc__tag">الأكثر طلباً</span>' : ''}<div class="svc__top"><h3>${esc(s.name)}</h3><span class="svc__dur">${ic('ic-clock')}${durTxt(s.dur)}</span></div><ul>${s.inc.map(x => `<li>${ic('ic-check')}<span>${esc(x)}</span></li>`).join('')}</ul><div class="svc__foot"><span class="price">${fmt(svcPrice(s, store.sel.size))} <small>ريال</small></span><button type="button" class="pick${on ? ' is-on' : ''}" data-svc="${s.id}" aria-pressed="${on}">${on ? ic('ic-check') + 'مضافة' : ic('ic-plus') + 'أضف للحجز'}</button></div></article>`; }).join('');
+  $('#addons').innerHTML = CFG.addons.map(a => { const on = store.sel.addons.includes(a.id); return `<button type="button" class="addon${on ? ' is-on' : ''}" data-addon="${a.id}" aria-pressed="${on}">${on ? ic('ic-check') : ic('ic-plus')}${esc(a.name)} <span>+${fmt(addonPrice(a))} ريال</span></button>`; }).join('');
+  renderBookbar();
+}
+function renderBookbar() {
+  const lines = selLines(); const on = lines.length && location.hash !== '#admin' && !$('#bookDlg').open;
+  $('#bookbar').classList.toggle('is-on', !!on);
+  if (lines.length) { const t = totals(lines); $('#bbTotal').textContent = `${money(t.sub)}، ${durTxt(t.dur)} تقريباً`; $('#bbItems').textContent = (SIZES.length > 1 ? sizeName(store.sel.size) + ': ' : '') + lines.map(l => l.name).join('، '); }
+}
+function renderLoyal() {
+  const n = every(), s = Math.min(store.loyalty.stamps || 0, n), left = n - s;
+  const cells = Array.from({ length: n + 1 }, (_, i) => i < n ? `<span class="stamp${i < s ? ' is-on' : ''}">${i < s ? ic('ic-check') : ic('ic-drop')}</span>` : `<span class="stamp is-free">${ic('ic-gift')}</span>`).join('');
+  $('#loyal').innerHTML = `<div><h2>كل ${fmt(n)} زيارات، السادسة علينا</h2><p>كل حجز من الموقع ينحسب لك ختم في بطاقتك. إذا كملت ${fmt(n)} أختام، أرخص خدمة في حجزك الجاي مجاناً، وتنخصم تلقائياً.</p></div><div class="stamps" style="--n:${n + 1}">${cells}<p class="stamps__txt">${left > 0 ? `${s ? `عندك ${fmt(s)} من ${fmt(n)}، ` : ''}باقي لك ${left === 1 ? 'زيارة وحدة' : left === 2 ? 'زيارتين' : fmt(left) + ' زيارات'} وتجيك المجانية` : 'عندك خدمة مجانية، تنخصم في حجزك الجاي'}</p></div>`.replace('السادسة', n === 5 ? 'السادسة' : 'اللي بعدها');
+}
+let cancelArm = null;
+function bcard(b, opts = {}) {
+  const st = statusOf(b); const br = branchById(b.branch);
+  const pill = { confirmed: 'pill--deep', arrived: 'pill--wait', washing: 'pill--wait', ready: 'pill--ok', done: '', cancelled: 'pill--off' }[st];
+  const steps = ['confirmed', 'arrived', 'washing', 'ready']; const idx = st === 'done' ? 4 : steps.indexOf(st);
+  const icons = ['ic-cal', 'ic-pin', 'ic-drop', 'ic-sparkle'];
+  const track = st === 'cancelled' ? '' : `<div class="track">${steps.map((s, i) => `<div class="track__step ${i < idx ? 'is-done' : i === idx ? 'is-now' : ''}"><span class="track__dot">${i < idx ? ic('ic-check') : ic(icons[i])}</span>${ST_NAME[s]}</div>`).join('')}</div>`;
+  const canChange = !opts.readOnly && st === 'confirmed' && slotDate(b) - Date.now() > 60 * 60000;
+  return `<article class="bcard"><div class="bcard__top"><div><div class="bcard__no" dir="ltr">${esc(b.no)}</div><div class="bcard__meta">${CFG.branches.length > 1 ? esc(br.name) + '، ' : ''}${dateLabel(b.date)}، ${minToTime(b.time)}</div></div><span class="pill ${pill}">${ST_NAME[st]}</span></div>${track}<div class="bcard__meta">${esc(b.model || 'أي حلاق متاح')}: ${b.lines.map(l => esc(l.name)).join('، ')}. <b>${money(b.total)}</b>${b.paid ? '، مدفوع' : '، تدفعه في الصالون'}</div>${opts.readOnly ? '' : `<div class="bcard__acts"><a class="btn btn--wa btn--sm" href="${waLinkTo(CFG.whatsapp, waText(b))}" target="_blank" rel="noopener">${ic('ic-wa')}أرسله للصالون واتساب</a>${canChange ? `<button class="btn btn--ghost btn--sm" type="button" data-resched="${esc(b.no)}">${ic('ic-cal')}غيّر الموعد</button><button class="btn btn--ghost btn--sm" type="button" data-cancel="${esc(b.no)}">${ic('ic-x')}${cancelArm === b.no ? 'متأكد؟ اضغط للإلغاء' : 'ألغِ الحجز'}</button>` : ''}</div>`}</article>`;
+}
+function renderBookings() {
+  const mine = store.bookings.slice().sort((a, b) => b.created - a.created);
+  $('#bkList').innerHTML = mine.length ? mine.map(b => bcard(b)).join('') : `<div class="empty">${ic('ic-cal')}<p>ما عندك حجوزات للحين.</p><button class="btn btn--brand" type="button" data-act="book">احجز أول زيارة</button></div>`;
+  const active = store.bookings.filter(b => ['confirmed', 'arrived', 'washing', 'ready'].includes(statusOf(b))).length;
+  $('#bkBadge').hidden = !active; $('#bkBadge').textContent = fmt(active);
+}
+function renderSite() { renderQueue(); renderServices(); renderLoyal(); renderBookings(); }
+
+/* ---------- booking sheet ---------- */
+const PERIODS = [{ id: 'm', name: 'الصباح', a: 360, b: 720 }, { id: 'n', name: 'العصر', a: 720, b: 1080 }, { id: 'e', name: 'الليل', a: 1080, b: 1440 }, { id: 'x', name: 'بعد ١٢', a: 0, b: 360 }];
+const PAYS = [{ id: 'mada', name: 'مدى', icon: 'ic-card' }, { id: 'apple', name: 'أبل باي', icon: 'ic-apple' }, { id: 'card', name: 'فيزا أو ماستركارد', icon: 'ic-card' }, { id: 'cash', name: 'أدفع في الصالون', icon: 'ic-cash' }];
+const COLORS = ['أبيض', 'أسود', 'فضي', 'رمادي', 'كحلي', 'أحمر', 'عنابي', 'بيج', 'أزرق', 'أخضر', 'لون ثاني'];
+let bk = null;
+const dlg = () => $('#bookDlg');
+function periodOf(m) { return (PERIODS.find(p => m >= p.a && m < p.b) || PERIODS[0]).id; }
+function pickDefault() {
+  for (let i = 0; i < 7; i++) { const d = ymd(addDays(new Date(), i)); const s = slotsFor(bk.branch, d).find(x => x.left > 0); if (s) { bk.date = d; bk.period = periodOf(s.m); return; } }
+  bk.date = today(); bk.period = 'e';
+}
+function openBook(opts = {}) {
+  if (store.settings.paused) { toast('الحجز متوقف مؤقتاً، جرّب بعد شوي'); return; }
+  const edit = opts.edit ? store.bookings.find(b => b.no === opts.edit) : null;
+  bk = { step: 1, branch: opts.branch || store.me.branch || CFG.branches[0].id, date: today(), period: 'e', time: null, name: store.me.name || '', phone: store.me.phone || '', model: store.me.model || '', color: store.me.color || '', plate: store.me.plate || '', note: '', pay: 'mada', code: '', codeMsg: '', useFree: freeReady(), busy: false, edit: edit ? edit.no : null, done: null, err: {} };
+  if (edit) bk.branch = edit.branch;
+  if (!edit && !selLines().some(l => l.kind === 'svc')) { const pop = CFG.services.find(s => s.pop) || CFG.services[0]; store.sel.svcs = [pop.id]; save(); renderServices(); bk.autoPicked = true; }
+  pickDefault();
+  renderBook();
+  if (!dlg().open) dlg().showModal();
+  renderBookbar();
+}
+function bookLines() { if (bk.edit) { const b = store.bookings.find(x => x.no === bk.edit); return b ? b.lines : []; } return selLines(); }
+function renderBook() {
+  const d = dlg(); const lines = bookLines();
+  if (bk.done) { d.innerHTML = doneView(); return; }
+  const titles = { 1: bk.edit ? 'اختر موعد جديد' : 'اختر الفرع والموعد', 2: 'بياناتك واختيار الحلاق', 3: 'المراجعة والدفع' };
+  const t = totals(lines, bk.code, bk.useFree && !bk.edit);
+  let body = '', foot = '';
+  if (bk.step === 1) {
+    const days = Array.from({ length: 7 }, (_, i) => ymd(addDays(new Date(), i)));
+    const slots = slotsFor(bk.branch, bk.date).filter(s => s.m >= PERIODS.find(p => p.id === bk.period).a && s.m < PERIODS.find(p => p.id === bk.period).b);
+    body = `${bk.edit ? '' : `<div class="sum"><div class="row"><b>خدماتك</b><button class="link" type="button" data-bk="edit">عدّل الخدمات</button></div>${lines.map(l => `<div class="row"><span>${esc(l.name)}</span><span>${money(l.price)}</span></div>`).join('')}${bk.autoPicked ? '<p class="hint">اخترنا لك الأكثر طلباً، وتقدر تعدّل.</p>' : ''}</div>`}
+    ${CFG.branches.length > 1 ? `<div class="field"><span class="label">الفرع</span><div class="opts">${CFG.branches.map(b => `<label class="opt${b.id === bk.branch ? ' is-on' : ''}"><input type="radio" name="br" value="${b.id}" ${b.id === bk.branch ? 'checked' : ''}>${esc(b.name)}<span class="opt__end">${esc(b.area)}</span></label>`).join('')}</div></div>` : ''}
+    <div class="field"><span class="label">اليوم</span><div class="chips">${days.map(x => { const dd = parseYmd(x); const lbl = x === today() ? 'اليوم' : x === days[1] ? 'بكرة' : DAYS[dd.getDay()]; return `<button type="button" class="chip${x === bk.date ? ' is-on' : ''}" data-day="${x}"><span>${lbl}</span><b>${fmt(dd.getDate())}</b><span>${MONTHS[dd.getMonth()]}</span></button>`; }).join('')}</div></div>
+    <div class="field"><span class="label">الوقت</span><div class="periods">${PERIODS.map(p => `<button type="button" class="${p.id === bk.period ? 'is-on' : ''}" data-period="${p.id}">${p.name}</button>`).join('')}</div>
+    ${slots.length ? `<div class="slots">${slots.map(s => `<button type="button" class="slot${s.m === bk.time ? ' is-on' : ''}" data-slot="${s.m}" ${s.left <= 0 ? 'disabled' : ''}>${minToTime(s.m)}<small class="${s.left === 1 ? 'is-few' : ''}">${s.left <= 0 ? 'محجوز' : s.left === 1 ? 'باقي مكان' : 'متاح'}</small></button>`).join('')}</div>` : `<p class="hint">ما فيه مواعيد في هذي الفترة، جرّب فترة ثانية.</p>`}</div>`;
+    foot = `<div class="row row--total" style="border:0;padding:0;margin:0"><span>${bk.time != null ? `${dateLabel(bk.date)}، ${minToTime(bk.time)}` : 'اختر وقت'}</span><span>${bk.edit ? '' : money(t.sub)}</span></div><button class="btn btn--brand btn--block" type="button" data-bk="${bk.edit ? 'resched' : 'next'}" ${bk.time == null ? 'disabled' : ''}>${bk.edit ? 'ثبّت الموعد الجديد' : 'التالي: بياناتك'}</button>`;
+  } else if (bk.step === 2) {
+    const e = bk.err;
+    body = `<div class="two"><div class="field"><label for="fName">الاسم</label><input class="input${e.name ? ' is-bad' : ''}" id="fName" value="${esc(bk.name)}" autocomplete="name" maxlength="40">${e.name ? `<span class="err">${e.name}</span>` : ''}</div><div class="field"><label for="fPhone">رقم الجوال</label><input class="input${e.phone ? ' is-bad' : ''}" id="fPhone" value="${esc(bk.phone)}" inputmode="tel" dir="ltr" placeholder="05xxxxxxxx" autocomplete="tel" maxlength="14">${e.phone ? `<span class="err">${e.phone}</span>` : ''}</div></div>
+    <div class="field"><label for="fModel">الحلاق</label><select class="select" id="fModel"><option value="">أي حلاق متاح</option>${(CFG.staff || []).map(c => `<option ${c === bk.model ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select><span class="hint">إذا عندك حلاق تفضّله اختره، أو خلّها على أول حلاق فاضي.</span></div><input type="hidden" id="fColor" value=""><input type="hidden" id="fPlate" value="">
+    <div class="field"><label for="fNote">ملاحظة <span class="muted" style="font-weight:500">(اختياري)</span></label><input class="input" id="fNote" value="${esc(bk.note)}" placeholder="مثل: فيه بقعة قهوة على المقعد" maxlength="80"></div>`;
+    foot = `<button class="btn btn--brand btn--block" type="button" data-bk="next">التالي: الدفع</button><button class="btn btn--ghost btn--block btn--sm" type="button" data-bk="back">رجوع</button>`;
+  } else {
+    const br = branchById(bk.branch);
+    body = `<div class="sum"><div class="row"><span>${CFG.branches.length > 1 ? esc(br.name) : 'الموعد'}</span><b>${dateLabel(bk.date)}، ${minToTime(bk.time)}</b></div><div class="row"><span>الحلاق</span><b>${esc(bk.model || 'أي حلاق متاح')}</b></div>${lines.map(l => `<div class="row"><span>${esc(l.name)}</span><span>${money(l.price)}</span></div>`).join('')}${t.disc ? `<div class="row row--save"><span>${esc(t.discLbl)}</span><span>−${money(t.disc)}</span></div>` : ''}<div class="row row--total"><span>الإجمالي</span><span>${money(t.total)}</span></div></div>
+    ${freeReady() ? `<label class="opt${bk.useFree ? ' is-on' : ''}"><input type="checkbox" id="fFree" ${bk.useFree ? 'checked' : ''}>${ic('ic-gift')}استخدم زيارتك المجانية<span class="opt__end">من بطاقة الولاء</span></label>` : ''}
+    ${bk.useFree && freeReady() ? '' : `<div class="field"><label for="fCode">كود خصم</label><div style="display:flex;gap:8px"><input class="input" id="fCode" value="${esc(bk.code)}" dir="ltr" placeholder="${esc(coupon().code || '')}" style="text-transform:uppercase"><button class="btn btn--ghost" type="button" data-bk="code">طبّق</button></div>${bk.codeMsg ? `<span class="${t.disc ? 'hint' : 'err'}">${bk.codeMsg}</span>` : `<span class="hint">جرّب الكود ${esc((coupon().code || '').toUpperCase())} وتاخذ خصم ${fmt(coupon().pct)}٪</span>`}</div>`}
+    <div class="field"><span class="label">طريقة الدفع</span><div class="opts">${PAYS.map(p => `<label class="opt${p.id === bk.pay ? ' is-on' : ''}"><input type="radio" name="pay" value="${p.id}" ${p.id === bk.pay ? 'checked' : ''}>${ic(p.icon)}${p.name}${p.id === 'cash' ? '<span class="opt__end">كاش أو شبكة</span>' : ''}</label>`).join('')}</div><span class="hint">الدفع هنا تجريبي وما يطلب بيانات بطاقة. في النسخة الحقيقية تنربط بوابة دفع رسمية.</span></div>`;
+    const lbl = bk.pay === 'cash' ? `أكّد الحجز` : bk.pay === 'apple' ? `ادفع ${money(t.total)} بأبل باي` : `ادفع ${money(t.total)}`;
+    foot = `<button class="btn ${bk.pay === 'apple' ? 'btn--deep' : 'btn--brand'} btn--block" type="button" data-bk="pay" ${bk.busy ? 'disabled' : ''}>${bk.busy ? '<span class="spin"></span>لحظات...' : lbl}</button><button class="btn btn--ghost btn--block btn--sm" type="button" data-bk="back" ${bk.busy ? 'disabled' : ''}>رجوع</button>`;
+  }
+  d.innerHTML = `<div class="sheet__in"><div class="sheet__head"><h3 id="bkTitle">${titles[bk.step]}</h3><button class="icon-btn" type="button" data-bk="close" aria-label="سكّر">${ic('ic-x')}</button></div><div class="sheet__body">${bk.edit ? '' : `<div class="stepbar" aria-hidden="true">${[1, 2, 3].map(i => `<span class="${i <= bk.step ? 'is-on' : ''}"></span>`).join('')}</div>`}${body}</div><div class="sheet__foot">${foot}</div></div>`;
+}
+function doneView() {
+  const b = bk.done; const br = branchById(b.branch);
+  return `<div class="sheet__in"><div class="sheet__head"><h3 id="bkTitle">تم الحجز</h3><button class="icon-btn" type="button" data-bk="close" aria-label="سكّر">${ic('ic-x')}</button></div><div class="sheet__body"><div class="done"><span class="done__ic">${ic('ic-check')}</span><h3 style="font-size:24px">موعدك محجوز، نشوفك ${dateLabel(b.date) === 'اليوم' ? 'اليوم' : dateLabel(b.date) === 'بكرة' ? 'بكرة' : 'قريب'}</h3><p class="muted">ورّ الحلاق رقم الحجز أول ما توصل، وتجلس على الكرسي على طول.</p><div class="ticket"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="font-size:13.5px;color:#CFE0E6">رقم الحجز</span><button class="btn btn--sm" type="button" data-bk="copy" style="background:rgba(255,255,255,.12);color:#fff">${ic('ic-copy')}انسخ</button></div><div class="ticket__no" dir="ltr" style="text-align:end">${esc(b.no)}</div><div class="ticket__grid"><div>الموعد<b>${dateLabel(b.date)}، ${minToTime(b.time)}</b></div><div>${CFG.branches.length > 1 ? 'الفرع' : 'المكان'}<b>${esc(CFG.branches.length > 1 ? br.short : br.area)}</b></div><div>الحلاق<b>${esc(b.model || 'أي حلاق متاح')}</b></div><div>الإجمالي<b>${money(b.total)}${b.paid ? '، مدفوع' : ''}</b></div></div></div></div></div><div class="sheet__foot"><a class="btn btn--wa btn--block" href="${waLinkTo(CFG.whatsapp, waText(b))}" target="_blank" rel="noopener">${ic('ic-wa')}أرسل الحجز للصالون واتساب</a><div class="two"><button class="btn btn--ghost btn--sm" type="button" data-bk="ics">${ic('ic-cal')}أضفه للتقويم</button><button class="btn btn--ghost btn--sm" type="button" data-bk="mine">${ic('ic-list')}حجوزاتي</button></div></div></div>`;
+}
+function readStep2() {
+  bk.name = $('#fName').value.trim(); bk.phone = latin($('#fPhone').value).replace(/[^\d+]/g, ''); bk.model = $('#fModel').value.trim(); bk.color = $('#fColor').value; bk.plate = $('#fPlate').value.trim(); bk.note = $('#fNote').value.trim();
+  const e = {}; if (bk.name.length < 2) e.name = 'اكتب اسمك'; if (!/^(05\d{8}|\+9665\d{8}|9665\d{8})$/.test(bk.phone)) e.phone = 'الرقم لازم يبدأ بـ ٠٥ ويكون ١٠ أرقام'; 
+  bk.err = e; return !Object.keys(e).length;
+}
+function newNo() { let n; do { n = `${CFG.prefix}-${1000 + Math.floor(Math.random() * 8999)}`; } while (store.bookings.some(b => b.no === n)); return n; }
+function confirmBooking() {
+  const lines = bookLines(); const useFree = bk.useFree && freeReady(); const t = totals(lines, bk.code, useFree);
+  const b = { no: newNo(), created: Date.now(), branch: bk.branch, date: bk.date, time: bk.time, size: store.sel.size, lines, sub: t.sub, disc: t.disc, discLbl: t.discLbl, total: t.total, dur: t.dur, pay: bk.pay, paid: bk.pay !== 'cash', name: bk.name, phone: bk.phone, model: bk.model, color: bk.color, plate: bk.plate, note: bk.note };
+  store.bookings.push(b);
+  store.loyalty.stamps = useFree ? 0 : Math.min(every(), (store.loyalty.stamps || 0) + 1);
+  store.me = { name: b.name, phone: b.phone, model: b.model, color: b.color, plate: b.plate, branch: b.branch };
+  store.sel.svcs = []; store.sel.addons = [];
+  save(); bk.done = b; bk.busy = false; renderBook(); renderSite();
+}
+function downloadIcs(b) {
+  const s = slotDate(b), e = new Date(s.getTime() + Math.max(30, b.dur || 30) * 60000); const br = branchById(b.branch);
+  const f = x => `${x.getUTCFullYear()}${pad(x.getUTCMonth() + 1)}${pad(x.getUTCDate())}T${pad(x.getUTCHours())}${pad(x.getUTCMinutes())}00Z`;
+  const txt = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ATS//Barber//AR', 'BEGIN:VEVENT', `UID:${b.no}@${CFG.slug}`, `DTSTAMP:${f(new Date())}`, `DTSTART:${f(s)}`, `DTEND:${f(e)}`, `SUMMARY:موعد حلاقة، ${CFG.fullName}`, `LOCATION:${br.addr}`, `DESCRIPTION:رقم الحجز ${b.no}`, 'BEGIN:VALARM', 'TRIGGER:-PT30M', 'ACTION:DISPLAY', 'DESCRIPTION:موعد الحلاقة', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: 'text/calendar' })); a.download = `${b.no}.ics`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function copyText(s) {
+  const ok = () => toast('انسخ الرقم'); const done = () => toast('تم نسخ الرقم');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(s).then(done, ok); else { const t = document.createElement('textarea'); t.value = s; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); done(); } catch (e) { ok(); } t.remove(); }
+}
+function closeBook() { if (dlg().open) dlg().close(); }
+dlg().addEventListener('close', () => { const wasDone = bk && bk.done; bk = null; renderBookbar(); if (wasDone) location.hash = '#bookings'; });
+dlg().addEventListener('click', e => {
+  if (e.target === dlg()) { closeBook(); return; }
+  const t = e.target.closest('[data-bk],[data-day],[data-period],[data-slot]'); if (!t || !bk) return;
+  if (t.dataset.day) { bk.date = t.dataset.day; bk.time = null; const s = slotsFor(bk.branch, bk.date).find(x => x.left > 0); if (s) bk.period = periodOf(s.m); renderBook(); return; }
+  if (t.dataset.period) { bk.period = t.dataset.period; bk.time = null; renderBook(); return; }
+  if (t.dataset.slot) { bk.time = +t.dataset.slot; renderBook(); return; }
+  const a = t.dataset.bk;
+  if (a === 'close') closeBook();
+  else if (a === 'edit') { closeBook(); location.hash = '#services'; }
+  else if (a === 'next') { if (bk.step === 2 && !readStep2()) { renderBook(); return; } bk.step++; renderBook(); $('.sheet__body', dlg()).scrollTop = 0; }
+  else if (a === 'back') { if (bk.step === 2) readStep2(); bk.err = {}; bk.step--; renderBook(); }
+  else if (a === 'code') { bk.code = latin($('#fCode').value.trim()); const t2 = totals(bookLines(), bk.code, false); bk.codeMsg = t2.disc ? `تم، وفّرت ${money(t2.disc)}` : 'الكود غير صحيح أو منتهي'; renderBook(); }
+  else if (a === 'pay') { if (bk.busy) return; bk.busy = true; renderBook(); setTimeout(confirmBooking, bk.pay === 'cash' ? 700 : 1500); }
+  else if (a === 'resched') { const b = store.bookings.find(x => x.no === bk.edit); if (b) { b.date = bk.date; b.time = bk.time; b.branch = bk.branch; save(); } closeBook(); toast('تم تغيير الموعد'); renderSite(); }
+  else if (a === 'copy') copyText(bk.done.no);
+  else if (a === 'ics') downloadIcs(bk.done);
+  else if (a === 'mine') { closeBook(); }
+});
+dlg().addEventListener('change', e => {
+  if (!bk) return; const t = e.target;
+  if (t.name === 'br') { bk.branch = t.value; bk.time = null; pickDefault(); renderBook(); }
+  else if (t.name === 'pay') { bk.pay = t.value; renderBook(); }
+  else if (t.id === 'fFree') { bk.useFree = t.checked; renderBook(); }
+});
+
+/* ---------- site events ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act],[data-size],[data-svc],[data-addon],[data-qb],[data-resched],[data-cancel]'); if (!t || t.closest('#bookDlg') || t.closest('#admin')) return;
+  if (t.dataset.act === 'book') { openBook({ branch: t.dataset.branch }); return; }
+  if (t.dataset.size) { store.sel.size = t.dataset.size; save(); renderServices(); return; }
+  if (t.dataset.svc) { const id = t.dataset.svc; store.sel.svcs = store.sel.svcs.includes(id) ? store.sel.svcs.filter(x => x !== id) : [...store.sel.svcs, id]; save(); renderServices(); if (store.sel.svcs.includes(id)) toast(`أضفنا ${svcById(id).name}`); return; }
+  if (t.dataset.addon) { const id = t.dataset.addon; store.sel.addons = store.sel.addons.includes(id) ? store.sel.addons.filter(x => x !== id) : [...store.sel.addons, id]; save(); renderServices(); return; }
+  if (t.dataset.qb) { qBranch = t.dataset.qb; renderQueue(); return; }
+  if (t.dataset.resched) { openBook({ edit: t.dataset.resched }); return; }
+  if (t.dataset.cancel) { const no = t.dataset.cancel; if (cancelArm !== no) { cancelArm = no; renderBookings(); return; } const b = store.bookings.find(x => x.no === no); if (b) { b.cancelled = true; if (store.loyalty.stamps > 0) store.loyalty.stamps--; save(); } cancelArm = null; toast('تم إلغاء الحجز'); renderSite(); }
+});
+$('#trackForm').addEventListener('submit', e => {
+  e.preventDefault(); const q = latin($('#trackNo').value).trim().toUpperCase().replace(/\s+/g, '');
+  const all = [...store.bookings, ...seedDay(today()), ...seedDay(ymd(addDays(new Date(), -1)))];
+  const b = all.find(x => x.no.replace('-', '') === q.replace('-', ''));
+  const err = $('#trackErr'); const out = $('#trackOut') || Object.assign(document.createElement('div'), { id: 'trackOut', style: 'margin-top:14px' });
+  if (!out.isConnected) $('#trackForm').after(out);
+  if (!b) { err.hidden = false; err.textContent = 'ما لقينا حجز بهذا الرقم، تأكد منه.'; out.innerHTML = ''; return; }
+  err.hidden = true; out.innerHTML = bcard(b, { readOnly: !store.bookings.includes(b) });
+});
+
+/* ---------- admin ---------- */
+let atab = 'today', abranch = 'all', resetArm = false;
+function dayList(d) { return [...seedDay(d), ...store.bookings.filter(b => b.date === d)].filter(b => abranch === 'all' || b.branch === abranch).map(b => ({ ...b, st: statusOf(b) })).filter(b => b.st !== 'cancelled').sort((a, b) => a.time - b.time); }
+function renderAdmin() {
+  const sel = $('#admBranch'); sel.hidden = CFG.branches.length < 2;
+  sel.innerHTML = `<option value="all">كل الفروع</option>${CFG.branches.map(b => `<option value="${b.id}" ${b.id === abranch ? 'selected' : ''}>${esc(b.name)}</option>`).join('')}`;
+  $('#admSub').textContent = `${CFG.fullName}، ${fullDate(today())}`;
+  $$('.atab').forEach(t => { t.classList.toggle('is-on', t.dataset.tab === atab); t.setAttribute('aria-selected', t.dataset.tab === atab); });
+  ({ today: aToday, prices: aPrices, settings: aSettings, reports: aReports })[atab]();
+}
+function aToday() {
+  const L = dayList(today()); const now = new Date(); const nowMin = now.getHours() * 60 + now.getMinutes();
+  const inShop = L.filter(b => b.st === 'arrived' || b.st === 'washing').length; const rev = L.reduce((t, b) => t + b.total, 0); const paid = L.length ? Math.round(L.filter(b => b.paid).length / L.length * 100) : 0;
+  const cols = [['confirmed', 'الجايين'], ['arrived', 'وصلوا'], ['washing', 'على الكرسي'], ['ready', 'خلصوا']];
+  const next = { confirmed: ['arrived', 'وصل'], arrived: ['washing', 'على الكرسي'], washing: ['ready', 'خلص'], ready: ['done', 'دفع وطلع'] };
+  const tk = b => `<div class="tk"><div class="tk__top"><span class="tk__no" dir="ltr">${esc(b.no)}</span><span class="tk__time">${minToTime(b.time)}</span></div><div class="mini">${esc(b.name)}، مع ${esc(b.model || 'أي حلاق')}${abranch === 'all' && CFG.branches.length > 1 ? '، ' + esc(branchById(b.branch).short) : ''}</div><div class="mini">${b.lines.map(l => esc(l.name)).join('، ')}</div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="pill ${b.paid ? 'pill--ok' : 'pill--wait'}">${b.paid ? 'مدفوع ' + money(b.total) : 'يدفع ' + money(b.total)}</span></div><button class="btn ${b.st === 'ready' ? 'btn--brand' : 'btn--deep'} btn--block" type="button" data-move="${esc(b.no)}" data-to="${next[b.st][0]}">${next[b.st][1]}</button>${b.st === 'ready' ? '<span class="mini">يوصل العميل رابط تقييم بعد الزيارة</span>' : ''}</div>`;
+  $('#apanel').innerHTML = `<div class="kpis"><div class="kpi"><b class="num">${fmt(L.length)}</b><span>حجز اليوم</span></div><div class="kpi"><b class="num">${fmt(inShop)}</b><span>زبون في الصالون الحين</span></div><div class="kpi"><b class="num">${fmt(rev)}</b><span>ريال مبيعات الحجوزات</span></div><div class="kpi"><b class="num">${fmt(paid)}٪</b><span>دفعوا مقدماً</span></div></div>
+  <div class="board">${cols.map(([s, n]) => { let items = L.filter(b => b.st === s); let more = 0; if (s === 'confirmed') { items = items.filter(b => b.time >= nowMin - 10); more = Math.max(0, items.length - 6); items = items.slice(0, 6); } return `<section class="col" aria-label="${n}"><div class="col__h">${n}<span>${fmt(L.filter(b => b.st === s).length)}</span></div>${items.map(tk).join('') || '<p class="mini" style="padding:6px">ما فيه شي هنا</p>'}${more ? `<p class="mini" style="padding:6px">و${fmt(more)} حجوزات بعدها</p>` : ''}</section>`; }).join('')}</div>`;
+}
+function aPrices() {
+  $('#apanel').innerHTML = `<div class="panel"><h3>أسعار الخدمات</h3><p>عدّل الأسعار، وتتحدث في الموقع على طول.</p><div class="tscroll"><table class="t" style="min-width:560px"><thead><tr><th>الخدمة</th>${SIZES.map(s => `<th>${esc(s.name)}</th>`).join('')}<th>المدة</th></tr></thead><tbody>${CFG.services.map(s => `<tr data-ps="${s.id}"><td><b>${esc(s.name)}</b></td>${SIZES.map((z, i) => `<td><input class="input num-in" type="number" min="0" step="5" value="${(store.prices[s.id] || s.prices)[i]}" aria-label="${esc(s.name)} ${esc(z.name)}"></td>`).join('')}<td class="mini">${durTxt(s.dur)}</td></tr>`).join('')}</tbody></table></div></div>
+  <div class="panel"><h3>الإضافات</h3><p>سعر ثابت يضاف على أي خدمة.</p><div class="tscroll"><table class="t"><thead><tr><th>الإضافة</th><th>السعر</th></tr></thead><tbody>${CFG.addons.map(a => `<tr data-pa="${a.id}"><td>${esc(a.name)}</td><td><input class="input num-in" type="number" min="0" step="1" value="${addonPrice(a)}" aria-label="${esc(a.name)}"></td></tr>`).join('')}</tbody></table></div></div>
+  <button class="btn btn--deep" type="button" data-aact="saveprices">احفظ الأسعار</button>`;
+}
+function aSettings() {
+  const s = store.settings;
+  $('#apanel').innerHTML = `<div class="panel"><h3>المواعيد</h3><p>تتحكم في عدد المواعيد المتاحة للحجز.</p><div class="formgrid"><div class="field"><label for="sIv">مدة كل موعد</label><select class="select" id="sIv">${[15, 20, 30].map(v => `<option value="${v}" ${v === s.interval ? 'selected' : ''}>${fmt(v)} دقيقة</option>`).join('')}</select></div>${CFG.branches.map(b => `<div class="field"><label for="sBay_${b.id}">عدد الكراسي، ${esc(b.short || b.name)}</label><input class="input" id="sBay_${b.id}" type="number" min="1" max="20" value="${s.bays[b.id]}"><span class="hint">كم زبون تقدرون تخدمون بنفس الوقت</span></div>`).join('')}</div>
+  <div class="switchrow"><div><b>إيقاف الحجز مؤقتاً</b><p class="hint">لو الضغط كبير أو فيه صيانة، يتوقف الحجز من الموقع.</p></div><input class="chk" type="checkbox" id="sPause" ${s.paused ? 'checked' : ''} aria-label="إيقاف الحجز مؤقتاً"></div></div>
+  <div class="panel"><h3>العروض والولاء</h3><p>بطاقة الولاء وكود الخصم اللي يطلع للعملاء.</p><div class="formgrid"><div class="field"><label for="sEvery">عدد الزيارات للحصول على خدمة مجانية</label><input class="input" id="sEvery" type="number" min="2" max="12" value="${s.loyaltyEvery}"></div><div class="field"><label for="sCode">كود الخصم</label><input class="input" id="sCode" dir="ltr" value="${esc(s.coupon.code)}" style="text-transform:uppercase"></div><div class="field"><label for="sPct">نسبة الخصم ٪</label><input class="input" id="sPct" type="number" min="0" max="90" value="${s.coupon.pct}"></div></div></div>
+  <div class="toolbar" style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn--deep" type="button" data-aact="savesettings">احفظ الإعدادات</button><button class="btn btn--ghost" type="button" data-aact="reset">${resetArm ? 'متأكد؟ اضغط مرة ثانية' : 'امسح بيانات التجربة'}</button></div>`;
+}
+function aReports() {
+  const L = dayList(today()); const hours = Array(24).fill(0); L.forEach(b => hours[Math.floor(b.time / 60) % 24]++); const mx = Math.max(1, ...hours);
+  const svc = {}; L.forEach(b => b.lines.forEach(l => { svc[l.name] = (svc[l.name] || 0) + 1; })); const top = Object.entries(svc).sort((a, b) => b[1] - a[1]).slice(0, 6); const tm = Math.max(1, ...top.map(x => x[1]));
+  const pays = { mada: 'مدى', apple: 'أبل باي', card: 'بطاقة', cash: 'في الصالون' }; const pm = {}; L.forEach(b => { pm[b.pay] = (pm[b.pay] || 0) + 1; });
+  $('#apanel').innerHTML = `<div class="panel"><h3>الحجوزات حسب الساعة، اليوم</h3><p>تعرف أوقات الذروة وتوزع العمال عليها.</p><div class="vbars">${hours.map((n, h) => `<i style="height:${Math.round(n / mx * 100)}%" title="${minToTime(h * 60)}: ${fmt(n)}"></i>`).join('')}</div><div class="vlabels">${hours.map((_, h) => `<span>${h % 3 === 0 ? fmt(h % 12 || 12) : ''}</span>`).join('')}</div></div>
+  <div class="formgrid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><div class="panel"><h3>أكثر الخدمات طلباً</h3><div class="hbars">${top.map(([n, c]) => `<div class="hbar"><div class="hbar__t"><span>${esc(n)}</span><i>${fmt(c)}</i></div><b style="width:${Math.round(c / tm * 100)}%"></b></div>`).join('')}</div></div><div class="panel"><h3>طرق الدفع</h3><div class="hbars">${Object.entries(pm).sort((a, b) => b[1] - a[1]).map(([k, c]) => `<div class="hbar"><div class="hbar__t"><span>${pays[k]}</span><i>${fmt(Math.round(c / L.length * 100))}٪</i></div><b style="width:${Math.round(c / L.length * 100)}%;background:var(--deep)"></b></div>`).join('')}</div></div></div>`;
+}
+$('#admin').addEventListener('click', e => {
+  const t = e.target.closest('[data-tab],[data-move],[data-aact]'); if (!t) return;
+  if (t.dataset.tab) { atab = t.dataset.tab; resetArm = false; renderAdmin(); return; }
+  if (t.dataset.move) { store.admin.moves[t.dataset.move] = t.dataset.to; save(); toast(t.dataset.to === 'done' ? 'تمت الزيارة' : 'تم تحديث الحالة'); renderAdmin(); return; }
+  const a = t.dataset.aact;
+  if (a === 'saveprices') { $$('[data-ps]').forEach(tr => { store.prices[tr.dataset.ps] = $$('input', tr).map(i => Math.max(0, +i.value || 0)); }); $$('[data-pa]').forEach(tr => { store.prices['a:' + tr.dataset.pa] = Math.max(0, +$('input', tr).value || 0); }); save(); renderServices(); toast('تم حفظ الأسعار'); }
+  if (a === 'savesettings') { const s = store.settings; s.interval = +$('#sIv').value; CFG.branches.forEach(b => { s.bays[b.id] = Math.max(1, Math.min(20, +$('#sBay_' + b.id).value || 1)); }); s.paused = $('#sPause').checked; s.loyaltyEvery = Math.max(2, Math.min(12, +$('#sEvery').value || 5)); s.coupon = { ...s.coupon, code: $('#sCode').value.trim().toUpperCase(), pct: Math.max(0, Math.min(90, +$('#sPct').value || 0)) }; save(); renderSite(); toast('تم حفظ الإعدادات'); }
+  if (a === 'reset') { if (!resetArm) { resetArm = true; aSettings(); return; } store = fresh(); save(); resetArm = false; renderSite(); renderAdmin(); toast('رجعت بيانات التجربة من البداية'); }
+});
+$('#admBranch').addEventListener('change', e => { abranch = e.target.value; renderAdmin(); });
+
+/* ---------- router & init ---------- */
+function route() {
+  const adm = location.hash === '#admin';
+  $('#site').hidden = adm; $('#admin').hidden = !adm; $('.top').hidden = adm;
+  $('#demoLink').hidden = adm;
+  if (adm) { renderAdmin(); window.scrollTo(0, 0); }
+  renderBookbar();
+}
+window.addEventListener('hashchange', route);
+renderStatic(); renderSite(); route();
+setInterval(() => { if (!document.hidden) { renderQueue(); renderBookings(); if (location.hash === '#admin' && atab === 'today') aToday(); } }, 60000);
+</script>
+</body>
+</html>
